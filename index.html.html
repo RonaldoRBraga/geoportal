@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geoportal NortGeo Engenharia — Georreferenciamento e Certificação SIGEF</title>
+<meta name="description" content="Geoportal interativo da NortGeo Engenharia: imóveis rurais e urbanos georreferenciados e certificados no SIGEF/INCRA.">
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<!-- Shapefile (.zip) -->
+<script src="https://unpkg.com/shpjs@4.0.4/dist/shp.min.js"></script>
+<!-- KML / GPX -->
+<script src="https://unpkg.com/@tmcw/togeojson@5.8.1/dist/togeojson.umd.js"></script>
+<!-- KMZ (descompactação) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- Tipografia: Saira (display técnico) + IBM Plex Mono (coordenadas) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== TOKENS ===================== */
+:root{
+  --mata-900:#101a17;      /* fundo mais profundo */
+  --mata-800:#15221e;      /* sidebar */
+  --mata-700:#1c2b26;      /* painéis */
+  --mata-600:#25362f;      /* bordas / hover */
+  --latao:#c9a227;         /* acento principal (latão de instrumento) */
+  --latao-claro:#e3bd45;
+  --verde-campo:#4fae8d;   /* acento secundário */
+  --texto:#e9efe9;
+  --texto-suave:#9db0a5;
+  --texto-apagado:#6d7f75;
+  --perigo:#e2685b;
+  --whatsapp:#25d366;
+  --sombra:0 10px 30px rgba(0,0,0,.45);
+  --raio:10px;
+  --fonte-display:'Saira',system-ui,sans-serif;
+  --fonte-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--fonte-display);
+  background:var(--mata-900);
+  color:var(--texto);
+  display:grid;
+  grid-template-rows:64px 1fr 40px;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* ===================== CABEÇALHO ===================== */
+header{
+  display:flex;align-items:center;gap:14px;
+  padding:0 18px;
+  background:linear-gradient(180deg,var(--mata-800),var(--mata-900));
+  border-bottom:1px solid var(--mata-600);
+  z-index:1200;
+}
+.logo-marca{display:flex;align-items:center;gap:12px;min-width:0}
+.logo-marca svg{flex:none}
+.logo-textos{line-height:1.1;min-width:0}
+.logo-nome{font-weight:700;font-size:1.15rem;letter-spacing:.02em;white-space:nowrap}
+.logo-nome span{color:var(--latao)}
+.logo-sub{font-family:var(--fonte-mono);font-size:.62rem;letter-spacing:.14em;color:var(--texto-suave);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-acoes{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn{
+  font-family:var(--fonte-display);font-weight:600;font-size:.85rem;
+  border:1px solid var(--mata-600);border-radius:var(--raio);
+  background:var(--mata-700);color:var(--texto);
+  padding:9px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:background .15s,border-color .15s,transform .1s;
+  text-decoration:none;white-space:nowrap;
+}
+.btn:hover{background:var(--mata-600);border-color:var(--latao)}
+.btn:focus-visible{outline:2px solid var(--latao);outline-offset:2px}
+.btn-whatsapp{background:var(--whatsapp);border-color:var(--whatsapp);color:#08331b}
+.btn-whatsapp:hover{background:#2ee27a;border-color:#2ee27a}
+.btn-latao{background:var(--latao);border-color:var(--latao);color:#231b04}
+.btn-latao:hover{background:var(--latao-claro);border-color:var(--latao-claro)}
+.btn-menu{display:none}
+
+/* ===================== ESTRUTURA PRINCIPAL ===================== */
+main{display:flex;min-height:0;position:relative}
+
+/* -------- Sidebar -------- */
+aside{
+  width:330px;flex:none;
+  background:var(--mata-800);
+  border-right:1px solid var(--mata-600);
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  z-index:1100;
+}
+aside::-webkit-scrollbar{width:8px}
+aside::-webkit-scrollbar-thumb{background:var(--mata-600);border-radius:4px}
+.secao{padding:16px 16px 14px;border-bottom:1px solid var(--mata-600)}
+.secao-titulo{
+  font-family:var(--fonte-mono);font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--latao);
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;
+}
+.secao-titulo::after{content:"";flex:1;height:1px;background:var(--mata-600)}
+
+/* -------- Upload -------- */
+.zona-upload{
+  border:1.5px dashed var(--mata-600);border-radius:var(--raio);
+  padding:16px 12px;text-align:center;cursor:pointer;
+  transition:border-color .15s,background .15s;
+}
+.zona-upload:hover,.zona-upload.arrastando{border-color:var(--latao);background:rgba(201,162,39,.06)}
+.zona-upload p{font-size:.82rem;color:var(--texto-suave);margin-top:6px}
+.zona-upload .formatos{font-family:var(--fonte-mono);font-size:.62rem;color:var(--texto-apagado);margin-top:8px;letter-spacing:.05em}
+.zona-upload strong{color:var(--texto)}
+#input-arquivos{display:none}
+
+/* -------- Lista de camadas -------- */
+.lista-camadas{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.camadas-vazio{font-size:.8rem;color:var(--texto-apagado);text-align:center;padding:10px 4px;line-height:1.5}
+.camada{
+  background:var(--mata-700);border:1px solid var(--mata-600);
+  border-radius:var(--raio);padding:10px 10px 8px;
+}
+.camada-topo{display:flex;align-items:center;gap:8px}
+.camada input[type=checkbox]{accent-color:var(--latao);width:15px;height:15px;cursor:pointer;flex:none}
+.camada input[type=color]{
+  width:22px;height:22px;border:none;border-radius:6px;background:none;cursor:pointer;flex:none;padding:0;
+}
+.camada-nome{font-size:.83rem;font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.camada-info{font-family:var(--fonte-mono);font-size:.6rem;color:var(--texto-apagado);margin:4px 0 6px 23px;letter-spacing:.04em}
+.camada-acoes{display:flex;align-items:center;gap:6px;margin-left:23px}
+.camada-acoes input[type=range]{flex:1;accent-color:var(--latao);height:4px;cursor:pointer}
+.mini-btn{
+  background:none;border:1px solid var(--mata-600);border-radius:6px;
+  color:var(--texto-suave);font-size:.72rem;padding:3px 7px;cursor:pointer;
+  transition:color .15s,border-color .15s;flex:none;
+  font-family:var(--fonte-display);
+}
+.mini-btn:hover{color:var(--latao);border-color:var(--latao)}
+.mini-btn.remover:hover{color:var(--perigo);border-color:var(--perigo)}
+
+/* -------- Mapas base -------- */
+.grade-basemaps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opcao-base{
+  border:1.5px solid var(--mata-600);border-radius:var(--raio);
+  background:var(--mata-700);cursor:pointer;padding:8px 4px 7px;
+  text-align:center;transition:border-color .15s,background .15s;
+  color:var(--texto-suave);
+}
+.opcao-base .icone{font-size:1.15rem;display:block;margin-bottom:4px}
+.opcao-base .rotulo{font-size:.68rem;font-weight:600;letter-spacing:.03em}
+.opcao-base.ativa{border-color:var(--latao);color:var(--texto);background:rgba(201,162,39,.08)}
+.opcao-base:focus-visible{outline:2px solid var(--latao);outline-offset:2px}
+
+/* -------- Ferramentas -------- */
+.grade-ferramentas{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn-ferramenta{
+  border:1px solid var(--mata-600);border-radius:var(--raio);
+  background:var(--mata-700);color:var(--texto);cursor:pointer;
+  padding:9px 6px;font-size:.78rem;font-weight:600;font-family:var(--fonte-display);
+  transition:border-color .15s,background .15s;
+}
+.btn-ferramenta:hover{border-color:var(--latao)}
+.btn-ferramenta.ativa{border-color:var(--latao);background:rgba(201,162,39,.12);color:var(--latao-claro)}
+.painel-medicao{
+  margin-top:10px;background:var(--mata-700);border:1px solid var(--latao);
+  border-radius:var(--raio);padding:10px;display:none;
+}
+.painel-medicao.visivel{display:block}
+.painel-medicao .valor{font-family:var(--fonte-mono);font-size:.95rem;color:var(--latao-claro);margin:4px 0}
+.painel-medicao .dica{font-size:.7rem;color:var(--texto-suave);line-height:1.45}
+.ir-para{display:flex;gap:6px;margin-top:10px}
+.ir-para input,.ir-para select{
+  font-family:var(--fonte-mono);font-size:.75rem;
+  background:var(--mata-700);border:1px solid var(--mata-600);border-radius:8px;
+  color:var(--texto);padding:8px;min-width:0;
+}
+.ir-para input{flex:1}
+.ir-para input:focus,.ir-para select:focus{outline:none;border-color:var(--latao)}
+.nota-coord{font-size:.66rem;color:var(--texto-apagado);margin-top:6px;line-height:1.5;font-family:var(--fonte-mono)}
+
+/* -------- Serviços (rodapé da sidebar) -------- */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-family:var(--fonte-mono);font-size:.6rem;letter-spacing:.08em;
+  border:1px solid var(--mata-600);border-radius:999px;padding:4px 10px;
+  color:var(--texto-suave);
+}
+
+/* -------- Mapa -------- */
+#mapa{flex:1;min-width:0;background:#0b1210;z-index:1}
+.leaflet-container{font-family:var(--fonte-display)}
+.leaflet-control-zoom a{
+  background:var(--mata-800)!important;color:var(--texto)!important;
+  border-color:var(--mata-600)!important;
+}
+.leaflet-control-zoom a:hover{background:var(--mata-600)!important;color:var(--latao-claro)!important}
+.leaflet-control-scale-line{
+  background:rgba(16,26,23,.8)!important;color:var(--texto)!important;
+  border-color:var(--latao)!important;font-family:var(--fonte-mono);font-size:10px!important;
+}
+.leaflet-control-attribution{background:rgba(16,26,23,.75)!important;color:var(--texto-apagado)!important;font-size:9px!important}
+.leaflet-control-attribution a{color:var(--texto-suave)!important}
+.leaflet-popup-content-wrapper{
+  background:var(--mata-800);color:var(--texto);border-radius:var(--raio);
+  border:1px solid var(--mata-600);box-shadow:var(--sombra);
+}
+.leaflet-popup-tip{background:var(--mata-800);border:1px solid var(--mata-600)}
+.leaflet-popup-content{margin:12px 14px;font-size:.8rem}
+.popup-titulo{font-weight:700;color:var(--latao);margin-bottom:8px;font-size:.85rem}
+.popup-tabela{max-height:220px;overflow:auto;border:1px solid var(--mata-600);border-radius:8px}
+.popup-tabela table{border-collapse:collapse;width:100%;font-size:.72rem}
+.popup-tabela td{padding:4px 8px;border-bottom:1px solid var(--mata-600);vertical-align:top}
+.popup-tabela td:first-child{font-family:var(--fonte-mono);color:var(--texto-suave);white-space:nowrap;font-size:.65rem}
+.popup-tabela tr:last-child td{border-bottom:none}
+
+/* botões flutuantes no mapa */
+.mapa-botoes{
+  position:absolute;top:12px;right:12px;z-index:1000;
+  display:flex;flex-direction:column;gap:8px;
+}
+.btn-mapa{
+  width:38px;height:38px;border-radius:9px;
+  background:var(--mata-800);border:1px solid var(--mata-600);
+  color:var(--texto);cursor:pointer;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--sombra);transition:border-color .15s,color .15s;
+}
+.btn-mapa:hover{border-color:var(--latao);color:var(--latao-claro)}
+
+/* ===================== CARIMBO (barra de coordenadas) ===================== */
+.carimbo{
+  display:flex;align-items:center;gap:0;
+  background:var(--mata-800);border-top:1px solid var(--latao);
+  font-family:var(--fonte-mono);font-size:.68rem;color:var(--texto-suave);
+  overflow-x:auto;white-space:nowrap;z-index:1200;
+}
+.carimbo::-webkit-scrollbar{height:0}
+.carimbo-celula{
+  padding:0 16px;height:100%;display:flex;align-items:center;gap:8px;
+  border-right:1px solid var(--mata-600);
+}
+.carimbo-celula b{color:var(--latao);font-weight:500;letter-spacing:.1em;font-size:.6rem}
+.carimbo-celula span{color:var(--texto)}
+.carimbo-marca{margin-left:auto;border-right:none;color:var(--texto-apagado);letter-spacing:.12em;font-size:.6rem}
+
+/* ===================== MODAL SOBRE ===================== */
+.modal-fundo{
+  position:fixed;inset:0;background:rgba(6,10,9,.72);z-index:2000;
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.modal-fundo.visivel{display:flex}
+.modal{
+  background:var(--mata-800);border:1px solid var(--mata-600);border-radius:14px;
+  max-width:520px;width:100%;max-height:85vh;overflow-y:auto;
+  padding:26px;box-shadow:var(--sombra);position:relative;
+}
+.modal h2{font-size:1.25rem;margin-bottom:4px}
+.modal h2 span{color:var(--latao)}
+.modal .eyebrow{font-family:var(--fonte-mono);font-size:.62rem;letter-spacing:.16em;color:var(--latao);text-transform:uppercase;margin-bottom:10px}
+.modal p{font-size:.86rem;line-height:1.6;color:var(--texto-suave);margin-bottom:12px}
+.modal ul{margin:0 0 14px 18px;font-size:.84rem;color:var(--texto-suave);line-height:1.7}
+.modal .contatos{font-family:var(--fonte-mono);font-size:.75rem;line-height:2;color:var(--texto)}
+.modal .fechar{
+  position:absolute;top:12px;right:12px;background:none;border:none;
+  color:var(--texto-suave);font-size:1.3rem;cursor:pointer;padding:6px;line-height:1;
+}
+.modal .fechar:hover{color:var(--latao)}
+
+/* ===================== TOASTS ===================== */
+.toasts{position:fixed;bottom:56px;left:50%;transform:translateX(-50%);z-index:3000;display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{
+  background:var(--mata-800);border:1px solid var(--latao);border-radius:10px;
+  padding:10px 18px;font-size:.8rem;box-shadow:var(--sombra);
+  animation:surgir .2s ease;max-width:90vw;
+}
+.toast.erro{border-color:var(--perigo);color:#f4b8b1}
+@keyframes surgir{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===================== RESPONSIVO ===================== */
+@media (max-width:820px){
+  .btn-menu{display:inline-flex}
+  .btn-sobre-txt,.btn-wpp-txt{display:none}
+  aside{
+    position:absolute;left:0;top:0;bottom:0;
+    transform:translateX(-100%);transition:transform .22s ease;
+    box-shadow:var(--sombra);width:300px;
+  }
+  aside.aberta{transform:translateX(0)}
+  .logo-sub{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== CABEÇALHO ===================== -->
+<header>
+  <button class="btn btn-menu" id="btn-menu" aria-label="Abrir painel de camadas">☰</button>
+  <div class="logo-marca">
+    <!-- Rosa dos ventos estilizada -->
+    <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="#c9a227" stroke-width="1.4"/>
+      <circle cx="20" cy="20" r="12.5" fill="none" stroke="#3a4b43" stroke-width="1"/>
+      <polygon points="20,4 23,20 20,17 17,20" fill="#c9a227"/>
+      <polygon points="20,36 23,20 20,23 17,20" fill="#4fae8d"/>
+      <polygon points="4,20 20,17 17,20 20,23" fill="#3a4b43"/>
+      <polygon points="36,20 20,17 23,20 20,23" fill="#3a4b43"/>
+      <circle cx="20" cy="20" r="2" fill="#e9efe9"/>
+    </svg>
+    <div class="logo-textos">
+      <div class="logo-nome">NortGeo <span>Engenharia</span></div>
+      <div class="logo-sub">Geoportal · Georreferenciamento · Certificação SIGEF/INCRA</div>
+    </div>
+  </div>
+  <div class="header-acoes">
+    <button class="btn" id="btn-sobre">ℹ <span class="btn-sobre-txt">Sobre</span></button>
+    <a class="btn btn-whatsapp" id="link-whatsapp" href="#" target="_blank" rel="noopener">
+      ✆ <span class="btn-wpp-txt">Solicitar orçamento</span>
+    </a>
+  </div>
+</header>
+
+<!-- ===================== PRINCIPAL ===================== -->
+<main>
+  <aside id="sidebar">
+
+    <!-- CAMADAS -->
+    <div class="secao">
+      <div class="secao-titulo">Camadas</div>
+      <div class="zona-upload" id="zona-upload" tabindex="0" role="button" aria-label="Adicionar camadas">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.6" aria-hidden="true">
+          <path d="M12 3v12m0-12L7 8m5-5 5 5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+        </svg>
+        <p><strong>Adicionar camadas</strong><br>clique ou arraste arquivos aqui (ou sobre o mapa)</p>
+        <div class="formatos">GEOJSON · JSON · KML · KMZ · GPX · SHP (.ZIP)</div>
+      </div>
+      <input type="file" id="input-arquivos" multiple
+             accept=".geojson,.json,.kml,.kmz,.gpx,.zip">
+      <div class="lista-camadas" id="lista-camadas">
+        <div class="camadas-vazio" id="camadas-vazio">
+          Nenhuma camada carregada.<br>
+          Adicione seus imóveis certificados para exibi-los no mapa.
+        </div>
+      </div>
+    </div>
+
+    <!-- MAPA BASE -->
+    <div class="secao">
+      <div class="secao-titulo">Mapa base</div>
+      <div class="grade-basemaps" role="radiogroup" aria-label="Mapa base">
+        <button class="opcao-base" data-base="ruas" role="radio" aria-checked="false">
+          <span class="icone">🗺️</span><span class="rotulo">Ruas</span>
+        </button>
+        <button class="opcao-base ativa" data-base="satelite" role="radio" aria-checked="true">
+          <span class="icone">🛰️</span><span class="rotulo">Satélite</span>
+        </button>
+        <button class="opcao-base" data-base="topografico" role="radio" aria-checked="false">
+          <span class="icone">⛰️</span><span class="rotulo">Topográfico</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- FERRAMENTAS -->
+    <div class="secao">
+      <div class="secao-titulo">Ferramentas</div>
+      <div class="grade-ferramentas">
+        <button class="btn-ferramenta" id="btn-medir-dist">📏 Medir distância</button>
+        <button class="btn-ferramenta" id="btn-medir-area">⬠ Medir área</button>
+      </div>
+      <div class="painel-medicao" id="painel-medicao">
+        <div class="valor" id="valor-medicao">—</div>
+        <div class="dica">Clique no mapa para adicionar vértices · duplo clique para concluir · Esc para cancelar</div>
+        <button class="mini-btn" id="btn-limpar-medicao" style="margin-top:8px">Limpar medição</button>
+      </div>
+      <div class="ir-para">
+        <select id="tipo-coord" aria-label="Tipo de coordenada">
+          <option value="geo">Lat/Lon</option>
+          <option value="utm">UTM 23S</option>
+        </select>
+        <input type="text" id="campo-coord" placeholder="-21.8703, -43.3269" aria-label="Coordenada de destino">
+        <button class="mini-btn" id="btn-ir" title="Ir para coordenada">Ir →</button>
+      </div>
+      <div class="nota-coord" id="nota-coord">Formato: latitude, longitude (graus decimais)</div>
+    </div>
+
+    <!-- SERVIÇOS -->
+    <div class="secao">
+      <div class="secao-titulo">Serviços</div>
+      <div class="chips">
+        <span class="chip">SIGEF</span><span class="chip">INCRA</span><span class="chip">CAR</span>
+        <span class="chip">CCIR</span><span class="chip">REURB</span><span class="chip">DESMEMBRAMENTO</span>
+        <span class="chip">USUCAPIÃO</span><span class="chip">TOPOGRAFIA</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAPA -->
+  <div id="mapa"></div>
+  <div class="mapa-botoes">
+    <button class="btn-mapa" id="btn-home" title="Visão inicial">⌂</button>
+    <button class="btn-mapa" id="btn-tela-cheia" title="Tela cheia">⛶</button>
+  </div>
+</main>
+
+<!-- ===================== CARIMBO TÉCNICO ===================== -->
+<div class="carimbo" id="carimbo">
+  <div class="carimbo-celula"><b>LAT</b><span id="c-lat">—</span></div>
+  <div class="carimbo-celula"><b>LON</b><span id="c-lon">—</span></div>
+  <div class="carimbo-celula"><b>UTM</b><span id="c-utm">—</span></div>
+  <div class="carimbo-celula"><b>DATUM</b><span>SIRGAS 2000</span></div>
+  <div class="carimbo-celula carimbo-marca">NORTGEO ENGENHARIA · GEOPORTAL v1.0</div>
+</div>
+
+<!-- ===================== MODAL SOBRE ===================== -->
+<div class="modal-fundo" id="modal-sobre" role="dialog" aria-modal="true" aria-labelledby="titulo-sobre">
+  <div class="modal">
+    <button class="fechar" id="btn-fechar-sobre" aria-label="Fechar">×</button>
+    <div class="eyebrow">Engenharia de Agrimensura e Cartografia</div>
+    <h2 id="titulo-sobre">NortGeo <span>Engenharia</span></h2>
+    <p id="sobre-descricao"></p>
+    <ul>
+      <li>Georreferenciamento de imóveis rurais e certificação SIGEF/INCRA</li>
+      <li>Cadastro Ambiental Rural (CAR) e CCIR</li>
+      <li>Regularização fundiária urbana (REURB) e desmembramentos</li>
+      <li>Levantamentos topográficos planialtimétricos</li>
+      <li>Perícias e laudos técnicos para usucapião e retificação de área</li>
+    </ul>
+    <div class="contatos" id="sobre-contatos"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script>
+/* ================================================================
+   CONFIGURAÇÃO — edite esta seção com os dados da sua empresa
+   ================================================================ */
+const EMPRESA = {
+  nome: "NortGeo Engenharia",
+  descricao: "Empresa de agrimensura e geotecnologia sediada em Minas Gerais, " +
+             "especializada em georreferenciamento e certificação de imóveis rurais " +
+             "junto ao SIGEF/INCRA, com precisão geodésica e conformidade normativa integral.",
+  whatsapp: "5532999999999",          // DDI+DDD+número, apenas dígitos
+  email:    "contato@nortgeo.com.br",
+  cidade:   "Matias Barbosa — MG",
+  crea:     "CREA-MG 000000000-0"      // seu registro profissional
+};
+
+/* Visão inicial do mapa: [latitude, longitude], zoom */
+const VISAO_INICIAL = { centro: [-21.8703, -43.3269], zoom: 12 };
+
+/* ================================================================
+   CAMADAS INICIAIS — imóveis que carregam automaticamente
+   ----------------------------------------------------------------
+   Para exibir seus imóveis certificados a todos os visitantes,
+   cole aqui o conteúdo GeoJSON (EPSG:4674/4326 — lat/lon) de cada um:
+
+   const CAMADAS_INICIAIS = [
+     {
+       nome: "Fazenda Boa Vista — Certificada SIGEF",
+       cor: "#c9a227",
+       dados: { "type":"FeatureCollection", "features":[ ... ] }
+     }
+   ];
+   ================================================================ */
+const CAMADAS_INICIAIS = [];
+
+/* ================================================================
+   GEODÉSIA — GRS80 / SIRGAS 2000 (fórmulas de Snyder/USGS)
+   ================================================================ */
+const GEO = (() => {
+  const a = 6378137.0, f = 1 / 298.257222101, k0 = 0.9996;
+  const e2 = 2 * f - f * f, ep2 = e2 / (1 - e2);
+  const e1 = (1 - Math.sqrt(1 - e2)) / (1 + Math.sqrt(1 - e2));
+  const d2r = Math.PI / 180, r2d = 180 / Math.PI;
+
+  function geoParaUtm(lat, lon) {
+    const zona = Math.max(1, Math.min(60, Math.floor((lon + 180) / 6) + 1));
+    const lon0 = ((zona - 1) * 6 - 180 + 3) * d2r;
+    const la = lat * d2r, lo = lon * d2r;
+    const sin = Math.sin(la), cos = Math.cos(la), tan = Math.tan(la);
+    const N = a / Math.sqrt(1 - e2 * sin * sin);
+    const T = tan * tan, C = ep2 * cos * cos, A = cos * (lo - lon0);
+    const M = a * ((1 - e2/4 - 3*e2*e2/64 - 5*e2*e2*e2/256) * la
+      - (3*e2/8 + 3*e2*e2/32 + 45*e2*e2*e2/1024) * Math.sin(2*la)
+      + (15*e2*e2/256 + 45*e2*e2*e2/1024) * Math.sin(4*la)
+      - (35*e2*e2*e2/3072) * Math.sin(6*la));
+    const E = k0 * N * (A + (1 - T + C)*A**3/6
+      + (5 - 18*T + T*T + 72*C - 58*ep2)*A**5/120) + 500000;
+    let No = k0 * (M + N * tan * (A*A/2
+      + (5 - T + 9*C + 4*C*C)*A**4/24
+      + (61 - 58*T + T*T + 600*C - 330*ep2)*A**6/720));
+    const sul = lat < 0;
+    if (sul) No += 10000000;
+    return { e: E, n: No, zona, hemi: sul ? "S" : "N" };
+  }
+
+  function utmParaGeo(E, N, zona, sul) {
+    const x = E - 500000;
+    let y = N; if (sul) y -= 10000000;
+    const M = y / k0;
+    const mu = M / (a * (1 - e2/4 - 3*e2*e2/64 - 5*e2*e2*e2/256));
+    const phi1 = mu
+      + (3*e1/2 - 27*e1**3/32) * Math.sin(2*mu)
+      + (21*e1*e1/16 - 55*e1**4/32) * Math.sin(4*mu)
+      + (151*e1**3/96) * Math.sin(6*mu)
+      + (1097*e1**4/512) * Math.sin(8*mu);
+    const sin1 = Math.sin(phi1), cos1 = Math.cos(phi1), tan1 = Math.tan(phi1);
+    const C1 = ep2 * cos1 * cos1, T1 = tan1 * tan1;
+    const N1 = a / Math.sqrt(1 - e2 * sin1 * sin1);
+    const R1 = a * (1 - e2) / Math.pow(1 - e2 * sin1 * sin1, 1.5);
+    const D = x / (N1 * k0);
+    const lat = phi1 - (N1 * tan1 / R1) * (D*D/2
+      - (5 + 3*T1 + 10*C1 - 4*C1*C1 - 9*ep2)*D**4/24
+      + (61 + 90*T1 + 298*C1 + 45*T1*T1 - 252*ep2 - 3*C1*C1)*D**6/720);
+    const lon0 = ((zona - 1) * 6 - 180 + 3) * d2r;
+    const lon = lon0 + (D - (1 + 2*T1 + C1)*D**3/6
+      + (5 - 2*C1 + 28*T1 - 3*C1*C1 + 8*ep2 + 24*T1*T1)*D**5/120) / cos1;
+    return { lat: lat * r2d, lon: lon * r2d };
+  }
+
+  function gms(valor, tipo) {
+    const hemi = tipo === "lat" ? (valor < 0 ? "S" : "N") : (valor < 0 ? "W" : "E");
+    const abs = Math.abs(valor);
+    const g = Math.floor(abs);
+    const mDec = (abs - g) * 60;
+    const m = Math.floor(mDec);
+    const s = (mDec - m) * 60;
+    return `${g}°${String(m).padStart(2,"0")}'${s.toFixed(2).padStart(5,"0")}" ${hemi}`;
+  }
+
+  /* Área geodésica aproximada (esfera de raio a) — para medições de referência */
+  function areaGeodesica(latlngs) {
+    let area = 0;
+    const n = latlngs.length;
+    if (n > 2) {
+      for (let i = 0; i < n; i++) {
+        const p1 = latlngs[i], p2 = latlngs[(i + 1) % n];
+        area += ((p2.lng - p1.lng) * d2r) *
+                (2 + Math.sin(p1.lat * d2r) + Math.sin(p2.lat * d2r));
+      }
+      area = Math.abs(area * a * a / 2);
+    }
+    return area;
+  }
+
+  return { geoParaUtm, utmParaGeo, gms, areaGeodesica };
+})();
+
+const fmtBR = (v, casas = 2) =>
+  v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+
+/* ================================================================
+   MAPA E MAPAS DE FUNDO
+   ================================================================ */
+const mapa = L.map("mapa", {
+  center: VISAO_INICIAL.centro,
+  zoom: VISAO_INICIAL.zoom,
+  zoomControl: true,
+  attributionControl: true
+});
+mapa.zoomControl.setPosition("topleft");
+L.control.scale({ metric: true, imperial: false, position: "bottomleft" }).addTo(mapa);
+
+const basemaps = {
+  ruas: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap"
+  }),
+  satelite: L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 19,
+    attribution: "&copy; Esri — Maxar, Earthstar Geographics"
+  }),
+  topografico: L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+    maxZoom: 17,
+    attribution: "&copy; OpenTopoMap (CC-BY-SA) · OpenStreetMap"
+  })
+};
+let baseAtual = basemaps.satelite.addTo(mapa);
+
+document.querySelectorAll(".opcao-base").forEach(botao => {
+  botao.addEventListener("click", () => {
+    document.querySelectorAll(".opcao-base").forEach(b => {
+      b.classList.remove("ativa"); b.setAttribute("aria-checked", "false");
+    });
+    botao.classList.add("ativa"); botao.setAttribute("aria-checked", "true");
+    mapa.removeLayer(baseAtual);
+    baseAtual = basemaps[botao.dataset.base].addTo(mapa);
+  });
+});
+
+/* ================================================================
+   CARIMBO — coordenadas ao vivo
+ ================================================================ */
+const cLat = document.getElementById("c-lat");
+const cLon = document.getElementById("c-lon");
+const cUtm = document.getElementById("c-utm");
+mapa.on("mousemove", ev => {
+  const { lat, lng } = ev.latlng;
+  cLat.textContent = GEO.gms(lat, "lat");
+  cLon.textContent = GEO.gms(lng, "lon");
+  const u = GEO.geoParaUtm(lat, lng);
+  cUtm.textContent =
+    `${u.zona}${u.hemi} · E ${fmtBR(u.e)} m · N ${fmtBR(u.n)} m`;
+});
+
+/* ================================================================
+   TOASTS
+   ================================================================ */
+function toast(msg, erro = false) {
+  const el = document.createElement("div");
+  el.className = "toast" + (erro ? " erro" : "");
+  el.textContent = msg;
+  document.getElementById("toasts").appendChild(el);
+  setTimeout(() => el.remove(), 4200);
+}
+
+/* ================================================================
+   GERENCIADOR DE CAMADAS
+   ================================================================ */
+const PALETA = ["#c9a227","#4fae8d","#5b8def","#e2685b","#9b6fd1","#d97ba6","#7fb069","#e0a458"];
+let contadorCores = 0, contadorId = 0;
+const camadas = new Map();   // id -> {nome, cor, opacidade, leaflet, visivel, nFeicoes}
+
+const listaEl = document.getElementById("lista-camadas");
+const vazioEl = document.getElementById("camadas-vazio");
+
+function escapar(t) {
+  return String(t).replace(/[&<>"']/g, c =>
+    ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+
+function popupDeFeicao(feicao, nomeCamada) {
+  const props = feicao.properties || {};
+  const chaves = Object.keys(props);
+  let html = `<div class="popup-titulo">${escapar(nomeCamada)}</div>`;
+  if (chaves.length === 0) {
+    html += `<em style="color:#9db0a5;font-size:.75rem">Sem atributos nesta feição.</em>`;
+  } else {
+    html += `<div class="popup-tabela"><table>`;
+    for (const k of chaves) {
+      let v = props[k];
+      if (v === null || v === undefined || v === "") continue;
+      if (typeof v === "object") v = JSON.stringify(v);
+      html += `<tr><td>${escapar(k)}</td><td>${escapar(v)}</td></tr>`;
+    }
+    html += `</table></div>`;
+  }
+  return html;
+}
+
+function estiloDaCamada(cor, op) {
+  return { color: cor, weight: 2.5, opacity: op, fillColor: cor, fillOpacity: op * 0.28 };
+}
+
+function adicionarCamada(nome, geojson, corFixa) {
+  const cor = corFixa || PALETA[contadorCores++ % PALETA.length];
+  const id = "camada-" + (++contadorId);
+  const opacidade = 1;
+
+  const camadaLeaflet = L.geoJSON(geojson, {
+    style: () => estiloDaCamada(cor, opacidade),
+    pointToLayer: (f, latlng) => L.circleMarker(latlng, {
+      radius: 6, color: cor, weight: 2, opacity: 1,
+      fillColor: cor, fillOpacity: 0.55
+    }),
+    onEachFeature: (feicao, l) => l.bindPopup(popupDeFeicao(feicao, nome), { maxWidth: 320 })
+  }).addTo(mapa);
+
+  let nFeicoes = 0;
+  camadaLeaflet.eachLayer(() => nFeicoes++);
+
+  camadas.set(id, { nome, cor, opacidade, leaflet: camadaLeaflet, visivel: true, nFeicoes });
+  renderizarItemCamada(id);
+  vazioEl.style.display = "none";
+
+  try {
+    const limites = camadaLeaflet.getBounds();
+    if (limites.isValid()) mapa.fitBounds(limites, { padding: [40, 40], maxZoom: 17 });
+  } catch (e) { /* camada sem geometria plotável */ }
+
+  toast(`Camada "${nome}" adicionada (${nFeicoes} feiç${nFeicoes === 1 ? "ão" : "ões"}).`);
+}
+
+function renderizarItemCamada(id) {
+  const c = camadas.get(id);
+  const el = document.createElement("div");
+  el.className = "camada";
+  el.id = id;
+  el.innerHTML = `
+    <div class="camada-topo">
+      <input type="checkbox" checked title="Exibir/ocultar" aria-label="Exibir camada ${escapar(c.nome)}">
+      <input type="color" value="${c.cor}" title="Cor da camada">
+      <div class="camada-nome" title="${escapar(c.nome)}">${escapar(c.nome)}</div>
+    </div>
+    <div class="camada-info">${c.nFeicoes} FEIÇÕES</div>
+    <div class="camada-acoes">
+      <input type="range" min="10" max="100" value="100" title="Opacidade">
+      <button class="mini-btn zoom" title="Aproximar para a camada">⌖</button>
+      <button class="mini-btn remover" title="Remover camada">✕</button>
+    </div>`;
+  listaEl.appendChild(el);
+
+  const [chk, cor] = el.querySelectorAll(".camada-topo input");
+  const faixa = el.querySelector("input[type=range]");
+  const btnZoom = el.querySelector(".zoom");
+  const btnRem = el.querySelector(".remover");
+
+  chk.addEventListener("change", () => {
+    c.visivel = chk.checked;
+    if (c.visivel) c.leaflet.addTo(mapa); else mapa.removeLayer(c.leaflet);
+  });
+  cor.addEventListener("input", () => {
+    c.cor = cor.value;
+    c.leaflet.setStyle(estiloDaCamada(c.cor, c.opacidade));
+    c.leaflet.eachLayer(l => {
+      if (l instanceof L.CircleMarker)
+        l.setStyle({ color: c.cor, fillColor: c.cor });
+    });
+  });
+  faixa.addEventListener("input", () => {
+    c.opacidade = faixa.value / 100;
+    c.leaflet.setStyle(estiloDaCamada(c.cor, c.opacidade));
+    c.leaflet.eachLayer(l => {
+      if (l instanceof L.CircleMarker)
+        l.setStyle({ opacity: c.opacidade, fillOpacity: c.opacidade * 0.55 });
+    });
+  });
+  btnZoom.addEventListener("click", () => {
+    try {
+      const b = c.leaflet.getBounds();
+      if (b.isValid()) mapa.fitBounds(b, { padding: [40, 40], maxZoom: 18 });
+    } catch (e) { toast("Camada sem extensão plotável.", true); }
+  });
+  btnRem.addEventListener("click", () => {
+    mapa.removeLayer(c.leaflet);
+    camadas.delete(id);
+    el.remove();
+    if (camadas.size === 0) vazioEl.style.display = "block";
+  });
+}
+
+/* ================================================================
+   LEITURA DE ARQUIVOS
+   ================================================================ */
+const inputArquivos = document.getElementById("input-arquivos");
+const zonaUpload = document.getElementById("zona-upload");
+
+zonaUpload.addEventListener("click", () => inputArquivos.click());
+zonaUpload.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); inputArquivos.click(); }
+});
+inputArquivos.addEventListener("change", () => {
+  processarArquivos(inputArquivos.files);
+  inputArquivos.value = "";
+});
+
+/* Arrastar e soltar — na zona de upload e sobre o mapa inteiro */
+[zonaUpload, document.getElementById("mapa")].forEach(alvo => {
+  alvo.addEventListener("dragover", e => {
+    e.preventDefault(); zonaUpload.classList.add("arrastando");
+  });
+  alvo.addEventListener("dragleave", () => zonaUpload.classList.remove("arrastando"));
+  alvo.addEventListener("drop", e => {
+    e.preventDefault(); zonaUpload.classList.remove("arrastando");
+    if (e.dataTransfer && e.dataTransfer.files.length) processarArquivos(e.dataTransfer.files);
+  });
+});
+
+async function processarArquivos(lista) {
+  for (const arquivo of Array.from(lista)) {
+    const nomeBase = arquivo.name.replace(/\.[^.]+$/, "");
+    const ext = (arquivo.name.split(".").pop() || "").toLowerCase();
+    try {
+      if (ext === "geojson" || ext === "json") {
+        const texto = await arquivo.text();
+        adicionarCamada(nomeBase, JSON.parse(texto));
+      } else if (ext === "kml") {
+        const texto = await arquivo.text();
+        const dom = new DOMParser().parseFromString(texto, "text/xml");
+        adicionarCamada(nomeBase, toGeoJSON.kml(dom));
+      } else if (ext === "gpx") {
+        const texto = await arquivo.text();
+        const dom = new DOMParser().parseFromString(texto, "text/xml");
+        adicionarCamada(nomeBase, toGeoJSON.gpx(dom));
+      } else if (ext === "kmz") {
+        const zip = await JSZip.loadAsync(await arquivo.arrayBuffer());
+        const entrada = Object.keys(zip.files).find(n => n.toLowerCase().endsWith(".kml"));
+        if (!entrada) throw new Error("KMZ sem arquivo KML interno.");
+        const texto = await zip.files[entrada].async("string");
+        const dom = new DOMParser().parseFromString(texto, "text/xml");
+        adicionarCamada(nomeBase, toGeoJSON.kml(dom));
+      } else if (ext === "zip") {
+        toast(`Lendo shapefile "${arquivo.name}"…`);
+        const resultado = await shp(await arquivo.arrayBuffer());
+        const conjuntos = Array.isArray(resultado) ? resultado : [resultado];
+        conjuntos.forEach((g, i) =>
+          adicionarCamada(g.fileName || `${nomeBase}${conjuntos.length > 1 ? " " + (i + 1) : ""}`, g));
+      } else {
+        toast(`Formato ".${ext}" não suportado. Use GeoJSON, KML, KMZ, GPX ou SHP zipado.`, true);
+      }
+    } catch (erro) {
+      console.error(erro);
+      toast(`Falha ao ler "${arquivo.name}": ${erro.message}`, true);
+    }
+  }
+}
+
+/* ================================================================
+   MEDIÇÃO (distância e área — valores esféricos de referência)
+   ================================================================ */
+const painelMed = document.getElementById("painel-medicao");
+const valorMed = document.getElementById("valor-medicao");
+const btnDist = document.getElementById("btn-medir-dist");
+const btnArea = document.getElementById("btn-medir-area");
+
+let modoMedicao = null;          // "dist" | "area" | null
+let pontosMedicao = [];
+let grupoMedicao = L.layerGroup().addTo(mapa);
+let formaMedicao = null;
+
+function ativarMedicao(modo) {
+  if (modoMedicao === modo) { desativarMedicao(); return; }
+  desativarMedicao(true);
+  modoMedicao = modo;
+  (modo === "dist" ? btnDist : btnArea).classList.add("ativa");
+  painelMed.classList.add("visivel");
+  valorMed.textContent = modo === "dist" ? "0,00 m" : "0,0000 ha";
+  mapa.doubleClickZoom.disable();
+  mapa.getContainer().style.cursor = "crosshair";
+}
+
+function desativarMedicao(manterDesenho = false) {
+  modoMedicao = null;
+  btnDist.classList.remove("ativa");
+  btnArea.classList.remove("ativa");
+  mapa.doubleClickZoom.enable();
+  mapa.getContainer().style.cursor = "";
+  if (!manterDesenho) { /* mantém o desenho na tela até "Limpar" */ }
+}
+
+function limparMedicao() {
+  grupoMedicao.clearLayers();
+  pontosMedicao = [];
+  formaMedicao = null;
+  painelMed.classList.remove("visivel");
+  valorMed.textContent = "—";
+  desativarMedicao();
+}
+
+btnDist.addEventListener("click", () => ativarMedicao("dist"));
+btnArea.addEventListener("click", () => ativarMedicao("area"));
+document.getElementById("btn-limpar-medicao").addEventListener("click", limparMedicao);
+document.addEventListener("keydown", e => { if (e.key === "Escape") limparMedicao(); });
+
+function atualizarMedicao() {
+  if (modoMedicao === "dist") {
+    let d = 0;
+    for (let i = 1; i < pontosMedicao.length; i++)
+      d += mapa.distance(pontosMedicao[i - 1], pontosMedicao[i]);
+    valorMed.textContent = d >= 1000
+      ? `${fmtBR(d / 1000, 3)} km  (${fmtBR(d)} m)`
+      : `${fmtBR(d)} m`;
+  } else if (modoMedicao === "area") {
+    const a = GEO.areaGeodesica(pontosMedicao);
+    valorMed.textContent = `${fmtBR(a / 10000, 4)} ha  (${fmtBR(a)} m²)`;
+  }
+}
+
+mapa.on("click", e => {
+  if (!modoMedicao) return;
+  pontosMedicao.push(e.latlng);
+  L.circleMarker(e.latlng, {
+    radius: 4, color: "#e3bd45", weight: 2, fillColor: "#e3bd45", fillOpacity: 1
+  }).addTo(grupoMedicao);
+  if (formaMedicao) grupoMedicao.removeLayer(formaMedicao);
+  if (modoMedicao === "dist" && pontosMedicao.length > 1) {
+    formaMedicao = L.polyline(pontosMedicao,
+      { color: "#e3bd45", weight: 2.5, dashArray: "6 5" }).addTo(grupoMedicao);
+  } else if (modoMedicao === "area" && pontosMedicao.length > 2) {
+    formaMedicao = L.polygon(pontosMedicao,
+      { color: "#e3bd45", weight: 2.5, dashArray: "6 5", fillOpacity: 0.12 }).addTo(grupoMedicao);
+  }
+  atualizarMedicao();
+});
+mapa.on("dblclick", () => { if (modoMedicao) desativarMedicao(); });
+
+/* ================================================================
+   IR PARA COORDENADA (Lat/Lon decimais ou UTM 23S E;N)
+   ================================================================ */
+const tipoCoord = document.getElementById("tipo-coord");
+const campoCoord = document.getElementById("campo-coord");
+const notaCoord = document.getElementById("nota-coord");
+let marcadorBusca = null;
+
+tipoCoord.addEventListener("change", () => {
+  if (tipoCoord.value === "geo") {
+    campoCoord.placeholder = "-21.8703, -43.3269";
+    notaCoord.textContent = "Formato: latitude, longitude (graus decimais)";
+  } else {
+    campoCoord.placeholder = "670250.00; 7580430.00";
+    notaCoord.textContent = "Formato: E; N (metros, fuso 23 Sul, SIRGAS 2000)";
+  }
+});
+
+function irParaCoordenada() {
+  const bruto = campoCoord.value.trim();
+  if (!bruto) return;
+  const partes = bruto.split(/[;,]/).map(p => parseFloat(p.trim().replace(",", ".")));
+  if (partes.length < 2 || partes.some(isNaN)) {
+    toast("Coordenada inválida. Verifique o formato indicado.", true); return;
+  }
+  let lat, lon;
+  if (tipoCoord.value === "geo") {
+    [lat, lon] = partes;
+    if (Math.abs(lat) > 90 || Math.abs(lon) > 180) {
+      toast("Valores fora do intervalo geográfico. Para UTM, selecione a opção UTM 23S.", true);
+      return;
+    }
+  } else {
+    const g = GEO.utmParaGeo(partes[0], partes[1], 23, true);
+    lat = g.lat; lon = g.lon;
+  }
+  if (marcadorBusca) mapa.removeLayer(marcadorBusca);
+  marcadorBusca = L.circleMarker([lat, lon], {
+    radius: 9, color: "#e3bd45", weight: 3, fillColor: "#c9a227", fillOpacity: 0.6
+  }).addTo(mapa).bindPopup(
+    `<div class="popup-titulo">Coordenada localizada</div>` +
+    `<div style="font-family:var(--fonte-mono);font-size:.72rem;line-height:1.7">` +
+    `${GEO.gms(lat, "lat")}<br>${GEO.gms(lon, "lon")}</div>`
+  ).openPopup();
+  mapa.flyTo([lat, lon], Math.max(mapa.getZoom(), 16));
+}
+document.getElementById("btn-ir").addEventListener("click", irParaCoordenada);
+campoCoord.addEventListener("keydown", e => { if (e.key === "Enter") irParaCoordenada(); });
+
+/* ================================================================
+   BOTÕES DO MAPA, MODAL, MENU MÓVEL
+   ================================================================ */
+document.getElementById("btn-home").addEventListener("click", () =>
+  mapa.flyTo(VISAO_INICIAL.centro, VISAO_INICIAL.zoom));
+
+document.getElementById("btn-tela-cheia").addEventListener("click", () => {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+});
+
+const modalSobre = document.getElementById("modal-sobre");
+document.getElementById("btn-sobre").addEventListener("click", () =>
+  modalSobre.classList.add("visivel"));
+document.getElementById("btn-fechar-sobre").addEventListener("click", () =>
+  modalSobre.classList.remove("visivel"));
+modalSobre.addEventListener("click", e => {
+  if (e.target === modalSobre) modalSobre.classList.remove("visivel");
+});
+
+const sidebar = document.getElementById("sidebar");
+document.getElementById("btn-menu").addEventListener("click", () =>
+  sidebar.classList.toggle("aberta"));
+mapa.on("click", () => sidebar.classList.remove("aberta"));
+
+/* ================================================================
+   INICIALIZAÇÃO — dados da empresa e camadas iniciais
+   ================================================================ */
+document.getElementById("sobre-descricao").textContent = EMPRESA.descricao;
+document.getElementById("sobre-contatos").innerHTML =
+  `📍 ${escapar(EMPRESA.cidade)}<br>` +
+  `✉ ${escapar(EMPRESA.email)}<br>` +
+  `✆ +${escapar(EMPRESA.whatsapp)}<br>` +
+  `🗎 ${escapar(EMPRESA.crea)}`;
+document.getElementById("link-whatsapp").href =
+  `https://wa.me/${EMPRESA.whatsapp}?text=` +
+  encodeURIComponent("Olá! Vi o geoportal da NortGeo Engenharia e gostaria de um orçamento de georreferenciamento.");
+
+CAMADAS_INICIAIS.forEach(c => {
+  try { adicionarCamada(c.nome, c.dados, c.cor); }
+  catch (e) { console.error("Camada inicial inválida:", c.nome, e); }
+});
+</script>
+</body>
+</html>
