@@ -448,9 +448,9 @@ const EMPRESA = {
              "especializada em georreferenciamento e certificação de imóveis rurais " +
              "junto ao SIGEF/INCRA, com precisão geodésica e conformidade normativa integral.",
   whatsapp: "5532999707033",          // DDI+DDD+número, apenas dígitos
-  email:    "ronaldorbraga.braga@gmail.com",
-  cidade:   "Belmiro Braga — MG",
-  crea:     "CREA-AC 4751/D"      // seu registro profissional
+  email:    "contato@nortgeo.com.br",
+  cidade:   "Matias Barbosa — MG",
+  crea:     "CREA-MG 000000000-0"      // seu registro profissional
 };
 
 /* Visão inicial do mapa: [latitude, longitude], zoom */
@@ -459,18 +459,43 @@ const VISAO_INICIAL = { centro: [-21.8703, -43.3269], zoom: 12 };
 /* ================================================================
    CAMADAS INICIAIS — imóveis que carregam automaticamente
    ----------------------------------------------------------------
-   Para exibir seus imóveis certificados a todos os visitantes,
-   cole aqui o conteúdo GeoJSON (EPSG:4674/4326 — lat/lon) de cada um:
+   Cada item pode indicar a camada de DUAS formas:
+
+   1) Por ARQUIVO no repositório (recomendado): suba o .geojson
+      no mesmo repositório do site e informe o nome em "url".
+      Coordenadas geográficas lat/lon — EPSG:4674 ou 4326.
+
+   2) Por conteúdo embutido: cole o GeoJSON inteiro em "dados".
+
+   Exemplos:
 
    const CAMADAS_INICIAIS = [
      {
-       nome: "Fazenda Boa Vista — Certificada SIGEF",
+       nome: "Sítio Boa Vista — 14 ha — Certificado SIGEF",
        cor: "#c9a227",
+       url: "sitio_boa_vista.geojson"
+     },
+     {
+       nome: "Gleba B Rajendra — Certificada SIGEF",
+       cor: "#4fae8d",
        dados: { "type":"FeatureCollection", "features":[ ... ] }
      }
    ];
+   Opções por camada:
+     visivel: false  -> carrega desativada (o visitante liga na lista)
    ================================================================ */
-const CAMADAS_INICIAIS = [];
+const CAMADAS_INICIAIS = [
+  { nome: "Barra do Espírito Santo · SIGEF", cor: "#c9a227", url: "camadas/barra_do_espirito_santo.geojson" },
+  { nome: "Boa Vista · SIGEF",               cor: "#4fae8d", url: "camadas/boa_vista.geojson" },
+  { nome: "Haras · SIGEF",                   cor: "#5b8def", url: "camadas/haras.geojson" },
+  { nome: "Ponte Preta · SIGEF",             cor: "#e2685b", url: "camadas/ponte_preta.geojson" },
+  { nome: "Providência · SIGEF",             cor: "#9b6fd1", url: "camadas/providencia.geojson" },
+  { nome: "Providência (Ron) · SIGEF",       cor: "#d97ba6", url: "camadas/providencia_ron.geojson" },
+  { nome: "Sítio Cachoeira · SIGEF",         cor: "#7fb069", url: "camadas/sitio_cachoeira.geojson" },
+  { nome: "Sítio Liberdade · SIGEF",         cor: "#e0a458", url: "camadas/sitio_liberdade.geojson" },
+  { nome: "Sítio São Geraldo · SIGEF",       cor: "#6fc7d9", url: "camadas/sitio_sao_geraldo.geojson" },
+  { nome: "Vértices SIGEF (marcos)",         cor: "#e3bd45", url: "camadas/vertices_sigef.geojson", visivel: false }
+];
 
 /* ================================================================
    GEODÉSIA — GRS80 / SIRGAS 2000 (fórmulas de Snyder/USGS)
@@ -661,33 +686,39 @@ function estiloDaCamada(cor, op) {
   return { color: cor, weight: 2.5, opacity: op, fillColor: cor, fillOpacity: op * 0.28 };
 }
 
-function adicionarCamada(nome, geojson, corFixa) {
+function adicionarCamada(nome, geojson, corFixa, opcoes = {}) {
   const cor = corFixa || PALETA[contadorCores++ % PALETA.length];
   const id = "camada-" + (++contadorId);
   const opacidade = 1;
+  const visivel = opcoes.visivel !== false;
 
   const camadaLeaflet = L.geoJSON(geojson, {
     style: () => estiloDaCamada(cor, opacidade),
     pointToLayer: (f, latlng) => L.circleMarker(latlng, {
-      radius: 6, color: cor, weight: 2, opacity: 1,
+      radius: 4.5, color: cor, weight: 1.5, opacity: 1,
       fillColor: cor, fillOpacity: 0.55
     }),
     onEachFeature: (feicao, l) => l.bindPopup(popupDeFeicao(feicao, nome), { maxWidth: 320 })
-  }).addTo(mapa);
+  });
+  if (visivel) camadaLeaflet.addTo(mapa);
 
   let nFeicoes = 0;
   camadaLeaflet.eachLayer(() => nFeicoes++);
 
-  camadas.set(id, { nome, cor, opacidade, leaflet: camadaLeaflet, visivel: true, nFeicoes });
+  camadas.set(id, { nome, cor, opacidade, leaflet: camadaLeaflet, visivel, nFeicoes });
   renderizarItemCamada(id);
   vazioEl.style.display = "none";
 
-  try {
-    const limites = camadaLeaflet.getBounds();
-    if (limites.isValid()) mapa.fitBounds(limites, { padding: [40, 40], maxZoom: 17 });
-  } catch (e) { /* camada sem geometria plotável */ }
+  if (visivel && opcoes.ajustar !== false) {
+    try {
+      const limites = camadaLeaflet.getBounds();
+      if (limites.isValid()) mapa.fitBounds(limites, { padding: [40, 40], maxZoom: 17 });
+    } catch (e) { /* camada sem geometria plotável */ }
+  }
 
-  toast(`Camada "${nome}" adicionada (${nFeicoes} feiç${nFeicoes === 1 ? "ão" : "ões"}).`);
+  if (!opcoes.silencioso)
+    toast(`Camada "${nome}" adicionada (${nFeicoes} feiç${nFeicoes === 1 ? "ão" : "ões"}).`);
+  return camadaLeaflet;
 }
 
 function renderizarItemCamada(id) {
@@ -713,6 +744,7 @@ function renderizarItemCamada(id) {
   const faixa = el.querySelector("input[type=range]");
   const btnZoom = el.querySelector(".zoom");
   const btnRem = el.querySelector(".remover");
+  chk.checked = c.visivel;
 
   chk.addEventListener("change", () => {
     c.visivel = chk.checked;
@@ -980,10 +1012,46 @@ document.getElementById("link-whatsapp").href =
   `https://wa.me/${EMPRESA.whatsapp}?text=` +
   encodeURIComponent("Olá! Vi o geoportal da NortGeo Engenharia e gostaria de um orçamento de georreferenciamento.");
 
-CAMADAS_INICIAIS.forEach(c => {
-  try { adicionarCamada(c.nome, c.dados, c.cor); }
-  catch (e) { console.error("Camada inicial inválida:", c.nome, e); }
-});
+(async () => {
+  const grupos = [];
+  let carregadas = 0;
+  await Promise.all(CAMADAS_INICIAIS.map(async c => {
+    try {
+      let geojson = c.dados;
+      if (!geojson && c.url) {
+        const resposta = await fetch(c.url);
+        if (!resposta.ok) throw new Error(`HTTP ${resposta.status} ao buscar ${c.url}`);
+        if (/\.kml(\?.*)?$/i.test(c.url)) {
+          const dom = new DOMParser().parseFromString(await resposta.text(), "text/xml");
+          geojson = toGeoJSON.kml(dom);
+        } else {
+          geojson = await resposta.json();
+        }
+      }
+      if (!geojson) throw new Error("Camada sem 'dados' e sem 'url'.");
+      const grupo = adicionarCamada(c.nome, geojson, c.cor,
+        { visivel: c.visivel !== false, ajustar: false, silencioso: true });
+      if (c.visivel !== false) grupos.push(grupo);
+      carregadas++;
+    } catch (e) {
+      console.error("Camada inicial inválida:", c.nome, e);
+      toast(`Falha ao carregar camada "${c.nome}".`, true);
+    }
+  }));
+  /* enquadra o conjunto de todas as camadas visíveis carregadas */
+  if (grupos.length) {
+    let limites = null;
+    grupos.forEach(g => {
+      try {
+        const b = g.getBounds();
+        if (b.isValid()) limites = limites ? limites.extend(b) : L.latLngBounds(b.getSouthWest(), b.getNorthEast());
+      } catch (e) { /* ignora */ }
+    });
+    if (limites) mapa.fitBounds(limites, { padding: [40, 40], maxZoom: 16 });
+    toast(`${carregadas} camada${carregadas > 1 ? "s" : ""} do portfólio NortGeo carregada${carregadas > 1 ? "s" : ""}.`);
+  }
+})();
 </script>
 </body>
 </html>
+
