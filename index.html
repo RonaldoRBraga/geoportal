@@ -500,6 +500,15 @@ const CAMADAS_INICIAIS = [
 ];
 
 /* ================================================================
+   AUTO-DESCOBERTA — qualquer .geojson/.kml novo na pasta "camadas"
+   aparece automaticamente no mapa, sem editar este arquivo.
+   Regras: nomes de arquivo SEM espaços e SEM acentos; arquivos com
+   "vertice" no nome carregam ocultos; coordenadas UTM 23S são
+   detectadas e convertidas automaticamente para geográficas.
+   ================================================================ */
+const AUTO_DESCOBERTA = { usuario: "RonaldoRBraga", repositorio: "geoportal", pasta: "camadas" };
+
+/* ================================================================
    GEODÉSIA — GRS80 / SIRGAS 2000 (fórmulas de Snyder/USGS)
    ================================================================ */
 const GEO = (() => {
@@ -688,7 +697,48 @@ function estiloDaCamada(cor, op) {
   return { color: cor, weight: 2.5, opacity: op, fillColor: cor, fillOpacity: op * 0.28 };
 }
 
+/* Detecta coordenadas em metros (UTM 23S) e converte para geográficas */
+function corrigirUtmSeNecessario(geojson) {
+  try {
+    let ehUtm = false;
+    (function procurar(o) {
+      if (ehUtm || o == null) return;
+      if (Array.isArray(o)) {
+        if (typeof o[0] === "number") {
+          if (Math.abs(o[0]) > 180 || Math.abs(o[1]) > 90) ehUtm = true;
+          return;
+        }
+        o.forEach(procurar);
+      } else if (typeof o === "object") {
+        if (o.coordinates) procurar(o.coordinates);
+        else Object.values(o).forEach(procurar);
+      }
+    })(geojson);
+    if (!ehUtm) return geojson;
+
+    function converter(c) {
+      if (typeof c[0] === "number") {
+        const g = GEO.utmParaGeo(c[0], c[1], 23, true);
+        return [Math.round(g.lon * 1e8) / 1e8, Math.round(g.lat * 1e8) / 1e8];
+      }
+      return c.map(converter);
+    }
+    const novo = JSON.parse(JSON.stringify(geojson));
+    (function aplicar(o) {
+      if (o == null) return;
+      if (Array.isArray(o)) { o.forEach(aplicar); return; }
+      if (typeof o === "object") {
+        if (o.coordinates) o.coordinates = converter(o.coordinates);
+        else Object.values(o).forEach(aplicar);
+      }
+    })(novo);
+    toast("Coordenadas UTM 23S detectadas — convertidas para SIRGAS 2000 geográficas.");
+    return novo;
+  } catch (e) { console.error("Conversão UTM automática falhou:", e); return geojson; }
+}
+
 function adicionarCamada(nome, geojson, corFixa, opcoes = {}) {
+  geojson = corrigirUtmSeNecessario(geojson);
   const cor = corFixa || PALETA[contadorCores++ % PALETA.length];
   const id = "camada-" + (++contadorId);
   const opacidade = 1;
@@ -1040,6 +1090,38 @@ document.getElementById("link-whatsapp").href =
       toast(`Falha ao carregar camada "${c.nome}".`, true);
     }
   }));
+  /* --- auto-descoberta: carrega arquivos novos da pasta "camadas" --- */
+  try {
+    const resposta = await fetch(
+      `https://api.github.com/repos/${AUTO_DESCOBERTA.usuario}/${AUTO_DESCOBERTA.repositorio}/contents/${AUTO_DESCOBERTA.pasta}`);
+    if (resposta.ok) {
+      const itens = await resposta.json();
+      const configuradas = new Set(CAMADAS_INICIAIS.map(c => (c.url || "").toLowerCase()));
+      for (const item of itens) {
+        if (item.type !== "file") continue;
+        if (!/\.(geojson|json|kml)$/i.test(item.name)) continue;
+        if (/\s/.test(item.name) || /[^\x00-\x7f]/.test(item.name)) continue; /* ignora nomes com espaços/acentos */
+        const url = `${AUTO_DESCOBERTA.pasta}/${item.name}`;
+        if (configuradas.has(url.toLowerCase())) continue;
+        try {
+          const r2 = await fetch(url);
+          if (!r2.ok) continue;
+          let gj;
+          if (/\.kml$/i.test(item.name)) {
+            gj = toGeoJSON.kml(new DOMParser().parseFromString(await r2.text(), "text/xml"));
+          } else {
+            gj = await r2.json();
+          }
+          const nome = item.name.replace(/\.(geojson|json|kml)$/i, "").replace(/[_-]+/g, " ");
+          const oculta = /vertice/i.test(nome);
+          const grupo = adicionarCamada(nome, gj, null,
+            { visivel: !oculta, ajustar: false, silencioso: true });
+          if (!oculta) grupos.push(grupo);
+          carregadas++;
+        } catch (e) { console.error("Auto-descoberta:", item.name, e); }
+      }
+    }
+  } catch (e) { console.error("Auto-descoberta indisponível:", e); }
   /* enquadra o conjunto de todas as camadas visíveis carregadas */
   if (grupos.length) {
     let limites = null;
