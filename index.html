@@ -433,6 +433,19 @@ aside::-webkit-scrollbar-thumb{background:var(--mata-600);border-radius:4px}
       <li>Perícias e laudos técnicos para usucapião e retificação de área</li>
     </ul>
     <div class="contatos" id="sobre-contatos"></div>
+    <div style="margin-top:16px;padding:12px;border:1px solid var(--mata-600);border-radius:10px;
+                font-size:.72rem;line-height:1.6;color:var(--texto-suave)">
+      <strong style="color:var(--latao);font-family:var(--fonte-mono);font-size:.62rem;
+                     letter-spacing:.14em;text-transform:uppercase">Nota técnica</strong><br>
+      As imagens de satélite e mapas de fundo (Esri/Maxar, OpenStreetMap, OpenTopoMap) são
+      utilizados sob as respectivas licenças, com atribuição, e têm caráter meramente
+      <strong style="color:var(--texto)">ilustrativo</strong>: são mosaicos com datas de
+      captura variadas e podem apresentar deslocamentos em relação ao terreno. Os limites
+      exibidos derivam de levantamentos geodésicos em SIRGAS 2000; para fins legais,
+      prevalecem as coordenadas, memoriais descritivos e plantas constantes das
+      certificações SIGEF/INCRA e matrículas registrais de cada imóvel. Este geoportal
+      é uma vitrine técnica e não substitui documentos oficiais.
+    </div>
   </div>
 </div>
 
@@ -1092,33 +1105,57 @@ document.getElementById("link-whatsapp").href =
   }));
   /* --- auto-descoberta: carrega arquivos novos da pasta "camadas" --- */
   try {
-    const resposta = await fetch(
-      `https://api.github.com/repos/${AUTO_DESCOBERTA.usuario}/${AUTO_DESCOBERTA.repositorio}/contents/${AUTO_DESCOBERTA.pasta}`);
-    if (resposta.ok) {
-      const itens = await resposta.json();
+    const CHAVE_CACHE = "nortgeo_lista_camadas";
+    let nomesArquivos = null;
+    try {
+      const resposta = await fetch(
+        `https://api.github.com/repos/${AUTO_DESCOBERTA.usuario}/${AUTO_DESCOBERTA.repositorio}/contents/${AUTO_DESCOBERTA.pasta}`);
+      if (resposta.ok) {
+        const itens = await resposta.json();
+        nomesArquivos = itens.filter(i => i.type === "file").map(i => i.name);
+        try { localStorage.setItem(CHAVE_CACHE,
+          JSON.stringify({ quando: Date.now(), nomes: nomesArquivos })); } catch (e) {}
+      } else {
+        console.warn("NortGeo: API do GitHub respondeu", resposta.status,
+          "(possível limite de consultas por hora).");
+      }
+    } catch (e) { console.warn("NortGeo: API do GitHub inacessível.", e); }
+    /* plano B: lista salva da última visita bem-sucedida */
+    if (!nomesArquivos) {
+      try {
+        const salvo = JSON.parse(localStorage.getItem(CHAVE_CACHE) || "null");
+        if (salvo && Array.isArray(salvo.nomes)) {
+          nomesArquivos = salvo.nomes;
+          console.info("NortGeo: usando lista de camadas salva localmente (API indisponível).");
+        }
+      } catch (e) {}
+    }
+    if (nomesArquivos) {
       const configuradas = new Set(CAMADAS_INICIAIS.map(c => (c.url || "").toLowerCase()));
-      for (const item of itens) {
-        if (item.type !== "file") continue;
-        if (!/\.(geojson|json|kml)$/i.test(item.name)) continue;
-        if (/\s/.test(item.name) || /[^\x00-\x7f]/.test(item.name)) continue; /* ignora nomes com espaços/acentos */
-        const url = `${AUTO_DESCOBERTA.pasta}/${item.name}`;
+      for (const nomeArq of nomesArquivos) {
+        if (!/\.(geojson|json|kml)$/i.test(nomeArq)) continue;
+        if (/\s/.test(nomeArq) || /[^\x00-\x7f]/.test(nomeArq)) {
+          console.warn(`NortGeo: arquivo "${nomeArq}" IGNORADO — renomeie sem espaços/acentos para exibi-lo.`);
+          continue;
+        }
+        const url = `${AUTO_DESCOBERTA.pasta}/${nomeArq}`;
         if (configuradas.has(url.toLowerCase())) continue;
         try {
           const r2 = await fetch(url);
-          if (!r2.ok) continue;
+          if (!r2.ok) { console.warn(`NortGeo: falha HTTP ${r2.status} em ${url}`); continue; }
           let gj;
-          if (/\.kml$/i.test(item.name)) {
+          if (/\.kml$/i.test(nomeArq)) {
             gj = toGeoJSON.kml(new DOMParser().parseFromString(await r2.text(), "text/xml"));
           } else {
             gj = await r2.json();
           }
-          const nome = item.name.replace(/\.(geojson|json|kml)$/i, "").replace(/[_-]+/g, " ");
+          const nome = nomeArq.replace(/\.(geojson|json|kml)$/i, "").replace(/[_-]+/g, " ");
           const oculta = /vertice/i.test(nome);
           const grupo = adicionarCamada(nome, gj, null,
             { visivel: !oculta, ajustar: false, silencioso: true });
           if (!oculta) grupos.push(grupo);
           carregadas++;
-        } catch (e) { console.error("Auto-descoberta:", item.name, e); }
+        } catch (e) { console.error("Auto-descoberta:", nomeArq, e); }
       }
     }
   } catch (e) { console.error("Auto-descoberta indisponível:", e); }
