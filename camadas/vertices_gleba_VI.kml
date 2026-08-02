@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+
+    
+    <Placemark>
+        <name>
+            YUBI-P-8735
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 35,229 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 32,968 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>1</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.4264525,-21.92582444,546.01</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8736
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 34,587 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 33,151 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>2</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42627417,-21.92587528,545.54</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8737
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 33,525 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 33,485 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>3</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42597917,-21.92596806,544.37</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8738
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 32,681 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 33,829 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>4</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42574472,-21.92606361,543.18</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8731
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 32,359 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 34,036 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>5</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42565528,-21.92612111,542.5</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-M-1687
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>M</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 32,444 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 34,143 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>6</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42567889,-21.92615083,544.73</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-M-1680
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>M</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 37,157 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 41,241 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>7</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42698806,-21.9281225,605.25</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8739
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,02</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 37,585 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 40,875 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>8</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42710694,-21.92802083,604.72</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8740
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,02</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 38,365 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 40,301 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>9</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42732361,-21.92786139,604.34</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8741
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,02</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 38,846 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 40,050 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>10</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42745722,-21.92779167,605.13</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-M-1673
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>M</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,03</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 39,254 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 39,864 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>11</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42757056,-21.92774,606.56</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8742
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,02</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 39,161 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 39,673 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>12</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42754472,-21.92768694,605.91</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8743
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,02</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 38,603 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 38,565 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>13</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42738972,-21.92737917,589.13</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8744
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 37,990 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 37,421 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>14</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42721944,-21.92706139,579.49</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8745
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 36,752 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 35,343 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>15</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42687556,-21.92648417,564.05</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8746
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 36,006 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 34,194 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>16</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42666833,-21.926165,554.43</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-P-8747
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>P</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 35,632 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 33,611 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>17</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42656444,-21.92600306,550.93</coordinates></Point>
+
+    </Placemark>
+    
+    <Placemark>
+        <name>
+            YUBI-M-1674
+        </name>
+        <ExtendedData>
+          <Data name="qrcode">
+            <displayName>QRCode</displayName>
+            <value>49879efb-c2bc-43ae-84e6-ff1b466d7746</value>
+          </Data>
+          <Data name="metodo_posicionamento">
+            <displayName>Método Posicionamento</displayName>
+            <value>PG6</value>
+          </Data>
+          <Data name="tipo_vertice">
+            <displayName>Tipo Vértice</displayName>
+            <value>M</value>
+          </Data>
+          <Data name="sigma_x">
+            <displayName>SIGMA X</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_y">
+            <displayName>SIGMA Y</displayName>
+            <value>0,0</value>
+          </Data>
+          <Data name="sigma_z">
+            <displayName>SIGMA Z</displayName>
+            <value>0,01</value>
+          </Data>
+          <Data name="lado">
+            <displayName>Lado</displayName>
+            <value>EXTERNO</value>
+          </Data>
+          <Data name="x">
+            <displayName>X</displayName>
+            <value>43 25 35,330 W</value>
+          </Data>
+          <Data name="y">
+            <displayName>Y</displayName>
+            <value>21 55 33,129 S</value>
+          </Data>
+          <Data name="z">
+            <displayName>Z</displayName>
+            <value></value>
+          </Data>
+          <Data name="indice">
+            <displayName>Índice</displayName>
+            <value>18</value>
+          </Data>
+        </ExtendedData>
+
+        <Point><coordinates>-43.42648056,-21.92586917,547.96</coordinates></Point>
+
+    </Placemark>
+    
+
+</Document>
+</kml>
