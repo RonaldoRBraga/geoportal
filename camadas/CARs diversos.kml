@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="imveis_do_sicar" id="imveis_do_sicar">
+	<SimpleField name="cod_imovel" type="string"></SimpleField>
+	<SimpleField name="status_imovel" type="string"></SimpleField>
+	<SimpleField name="dat_criacao" type="string"></SimpleField>
+	<SimpleField name="data_atualizacao" type="string"></SimpleField>
+	<SimpleField name="area" type="float"></SimpleField>
+	<SimpleField name="condicao" type="string"></SimpleField>
+	<SimpleField name="uf" type="string"></SimpleField>
+	<SimpleField name="municipio" type="string"></SimpleField>
+	<SimpleField name="cod_municipio_ibge" type="int"></SimpleField>
+	<SimpleField name="m_fiscal" type="float"></SimpleField>
+	<SimpleField name="tipo_imovel" type="string"></SimpleField>
+</Schema>
+<Folder><name>imveis_do_sicar</name>
+  <Placemark id="imveis_do_sicar.1">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-E3A200E94E6F49A9809A173CEB717A6A</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2015/05/10 17:10:34.485+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">16.2221</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.41</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50562442,-17.99943779 -41.50768347,-18.00050726 -41.50763672,-18.00078398 -41.50772152,-18.00097776 -41.50787121,-18.00118757 -41.50834577,-18.00237875 -41.50635205,-18.00259641 -41.50307664,-18.00187163 -41.50258936,-18.00148084 -41.50224067,-18.00105738 -41.50249816,-18.0008125 -41.50310779,-18.00000448 -41.50358515,-17.99982027 -41.50463814,-17.99909248 -41.50551929,-17.99848776 -41.50562442,-17.99943779</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.2">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-F7FF3DEFFF17448793E487D41F9AEFFC</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2015/06/09 01:40:49.634+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">29.7603</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.75</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50711813,-18.00915547 -41.50850718,-18.00985574 -41.50876526,-18.0098038 -41.50920097,-18.0099845 -41.50979013,-18.00904054 -41.51073182,-18.00838609 -41.51162604,-18.00841317 -41.51266487,-18.0087128 -41.51288339,-18.00941285 -41.51374711,-18.00983491 -41.513422,-18.01100827 -41.51320742,-18.01155923 -41.51267547,-18.01345 -41.51163326,-18.01346004 -41.51076773,-18.01317106 -41.50947076,-18.01359192 -41.50832271,-18.01333388 -41.50908394,-18.01310447 -41.50898779,-18.01276273 -41.50898047,-18.01271095 -41.50851149,-18.01228087 -41.50810074,-18.01108813 -41.50754698,-18.01058817 -41.50704467,-18.01013197 -41.50635187,-18.00965067 -41.50514029,-18.00878423 -41.5051573,-18.00878532 -41.50523663,-18.0086261 -41.50519017,-18.0083457 -41.50520444,-18.00807994 -41.50543053,-18.00774063 -41.50553554,-18.00736344 -41.50577033,-18.0073727 -41.50600069,-18.00775217 -41.50641513,-18.00793086 -41.50644149,-18.00842309 -41.50711813,-18.00915547</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.3">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-165BC34FA1FA4BE38A856B6D09C96B80</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2015/06/11 14:46:07.856+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">8.5636</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.21</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50864301,-18.00497288 -41.50863228,-18.00558509 -41.50944767,-18.00573814 -41.51168999,-18.00611567 -41.51164708,-18.0059116 -41.51187238,-18.00585038 -41.51241956,-18.00601363 -41.51258049,-18.00598302 -41.51601372,-18.00648299 -41.51605663,-18.00584018 -41.5160459,-18.00506472 -41.51173291,-18.00508512 -41.50864301,-18.00497288</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.4">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-7118F687A05A47B1A32E509A4218D70A</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2015/06/11 23:45:35.146+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">45.8931</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">1.15</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50415581,-17.9949976 -41.50403506,-17.99467602 -41.5039495,-17.99429055 -41.50378214,-17.9932571 -41.50375593,-17.99305507 -41.50332334,-17.99144689 -41.50314953,-17.99107596 -41.50302903,-17.99084582 -41.50279295,-17.99047748 -41.50260894,-17.99036528 -41.50253529,-17.99025135 -41.50212421,-17.98982239 -41.50163007,-17.98959096 -41.50148593,-17.98944633 -41.50137221,-17.98937904 -41.50136212,-17.98934924 -41.50127277,-17.9891498 -41.50157677,-17.98897075 -41.50212673,-17.98867856 -41.50235385,-17.98861136 -41.50269714,-17.98841478 -41.50295025,-17.98833636 -41.50332636,-17.98812776 -41.50349071,-17.98835478 -41.50372875,-17.98852215 -41.50390249,-17.98867407 -41.50390728,-17.98867296 -41.5042208,-17.98866951 -41.50424097,-17.98866029 -41.50456181,-17.98875247 -41.50511832,-17.98874269 -41.5056697,-17.98892946 -41.50594647,-17.98873936 -41.50615877,-17.98866232 -41.5061675,-17.98866613 -41.5065359,-17.98860401 -41.50654402,-17.98860883 -41.50688319,-17.98858201 -41.50727829,-17.98860703 -41.50772323,-17.98864938 -41.50825431,-17.98872081 -41.50859227,-17.98873612 -41.50868883,-17.98875908 -41.50880148,-17.98880245 -41.50888463,-17.98885857 -41.50898387,-17.98894786 -41.50909653,-17.98903715 -41.50932451,-17.98923358 -41.50953641,-17.98940451 -41.50968661,-17.98958053 -41.50972416,-17.98960604 -41.50978049,-17.98961625 -41.50983682,-17.98964941 -41.50991728,-17.98971574 -41.51002457,-17.98969533 -41.51020428,-17.98961114 -41.51043227,-17.98947083 -41.51095798,-17.98929736 -41.51197429,-17.99134115 -41.51112698,-17.9918874 -41.51093771,-17.99196337 -41.51041376,-17.9921911 -41.50976713,-17.99247059 -41.50914387,-17.99275689 -41.50883367,-17.99289436 -41.50807192,-17.99322089 -41.50761627,-17.99342178 -41.50704607,-17.99367129 -41.50649834,-17.99392433 -41.50478415,-17.99462456 -41.50432693,-17.99492638 -41.50421503,-17.99496588 -41.50415581,-17.9949976</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.5">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-671CCC7AA14549F7B40833482E3AB1D2</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2015/09/22 21:11:06.656+00</SimpleData>
+		<SimpleData name="area">1.2873</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.0322</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.513767,-18.008812 -41.512578,-18.008738 -41.512404,-18.008635 -41.512447,-18.008923 -41.512405,-18.009249 -41.512334,-18.009318 -41.512398,-18.009394 -41.512604,-18.009421 -41.512674,-18.009351 -41.513561,-18.009459 -41.513904,-18.009634 -41.514146,-18.008772 -41.513767,-18.008812</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.6">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-54D9480FC29D4C34B71B03B14EA02071</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2015/09/22 21:11:47.294+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/17 13:21:39.702+00</SimpleData>
+		<SimpleData name="area">8.9925</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.2248</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.509094,-17.994766 -41.508984,-17.994498 -41.50852,-17.994972 -41.508371,-17.995126 -41.508184,-17.995273 -41.507616,-17.995947 -41.507257,-17.996411 -41.506679,-17.997069 -41.506013,-17.997785 -41.505924,-17.997874 -41.505782,-17.998087 -41.505752,-17.998138 -41.505644,-17.998245 -41.50546,-17.998523 -41.505552,-17.998733 -41.505619,-17.999474 -41.506512,-17.999748 -41.506739,-17.999826 -41.507703,-17.999814 -41.507713,-17.998792 -41.507724,-17.998279 -41.507717,-17.998011 -41.507712,-17.997623 -41.507701,-17.997559 -41.507837,-17.997148 -41.507997,-17.996921 -41.50823,-17.996582 -41.508586,-17.996111 -41.508778,-17.99594 -41.509469,-17.995601 -41.509356,-17.995334 -41.509094,-17.994766</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.7">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-FF344092103F4BCCA361F9D5B5605264</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2015/09/22 21:12:03.216+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/20 03:46:07.687+00</SimpleData>
+		<SimpleData name="area">8.4736</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.2118</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.509822,-17.99882 -41.509553,-17.998569 -41.509788,-17.998078 -41.509981,-17.997682 -41.510096,-17.997406 -41.510422,-17.996668 -41.510668,-17.996141 -41.510265,-17.995944 -41.509975,-17.99581 -41.509525,-17.995717 -41.509469,-17.995601 -41.509465,-17.995579 -41.508778,-17.99594 -41.508586,-17.996111 -41.50823,-17.996582 -41.507997,-17.996921 -41.507837,-17.997148 -41.507701,-17.997559 -41.507712,-17.997623 -41.507717,-17.998011 -41.507724,-17.998279 -41.507713,-17.998792 -41.507703,-17.999814 -41.507608,-18.000449 -41.508592,-17.999014 -41.509157,-17.99879 -41.509822,-17.99882</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.8">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-BCD2D1ACB63940CBA46A93BF5A76EE55</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2015/09/26 01:52:13.228+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">1.178</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.0294</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.506013,-17.997785 -41.505924,-17.997874 -41.505782,-17.998087 -41.505752,-17.998138 -41.505644,-17.998245 -41.505639,-17.99827 -41.505554,-17.998488 -41.50546,-17.998523 -41.505075,-17.998787 -41.504639,-17.999103 -41.504379,-17.998688 -41.504368,-17.998102 -41.50521,-17.99817 -41.505498,-17.998119 -41.505616,-17.997977 -41.505449,-17.997521 -41.505431,-17.99749 -41.505469,-17.997493 -41.505727,-17.997589 -41.505835,-17.997657 -41.506013,-17.997785</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.9">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-ADEA9239324A45659E2C262635AF9E5D</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2016/02/26 04:53:56.635+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">4.355</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.1089</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51515259,-18.0053764 -41.51379376,-18.00505499 -41.51176072,-18.00456576 -41.51168814,-18.00483913 -41.51157796,-18.0051327 -41.51145399,-18.00566722 -41.51171532,-18.00571996 -41.51250992,-18.00587937 -41.51334006,-18.00602574 -41.51399741,-18.00616176 -41.51486998,-18.00632529 -41.51499482,-18.00586415 -41.51515259,-18.0053764</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.10">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-B45A15F26BCB4B4EBC2DED0445749876</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2016/03/01 02:29:08.997+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/19 04:00:47.783+00</SimpleData>
+		<SimpleData name="area">11.1361</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.2784</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50675666,-17.99400749 -41.50596917,-17.9942684 -41.50537235,-17.99434883 -41.50511084,-17.99434327 -41.50486115,-17.99381063 -41.50465604,-17.99400175 -41.50451856,-17.99371065 -41.50458637,-17.99367797 -41.5054382,-17.99296644 -41.50778532,-17.99087658 -41.50827885,-17.99057045 -41.50935173,-17.99083576 -41.50963068,-17.99216231 -41.50780936,-17.99363033 -41.50675666,-17.99400749</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.11">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-3DA96F392508416FB432BC47373A37B2</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2016/05/19 07:00:02.933+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">193.6342</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">4.8409</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51304245,-18.01273274 -41.5131712,-18.01222259 -41.51357889,-18.0109166 -41.51385331,-18.00996489 -41.51390982,-18.009673 -41.51396513,-18.00946776 -41.51403333,-18.00926157 -41.51407249,-18.0090962 -41.51411807,-18.00888072 -41.5141412,-18.00873973 -41.51453064,-18.00733875 -41.51463168,-18.00696097 -41.51504874,-18.00565173 -41.51523113,-18.00490688 -41.51538134,-18.00422324 -41.51575685,-18.00260088 -41.51602507,-18.0009581 -41.51628256,-18.00119278 -41.51654005,-18.0015295 -41.51711941,-18.00203968 -41.51747346,-18.00218253 -41.51775241,-18.00231518 -41.51827812,-18.0026621 -41.51782998,-18.00350404 -41.51753132,-18.00455376 -41.51730514,-18.00577365 -41.51747152,-18.00619539 -41.51764646,-18.00661273 -41.51834639,-18.00738676 -41.51890076,-18.00761535 -41.51956142,-18.00754513 -41.52014262,-18.00751231 -41.52061309,-18.00770918 -41.52159113,-18.00827883 -41.52242448,-18.00891138 -41.52385354,-18.01066089 -41.52447735,-18.01154979 -41.52481954,-18.01189094 -41.52572393,-18.01342655 -41.52636766,-18.01409994 -41.52746201,-18.0146509 -41.52999401,-18.01403872 -41.52703285,-18.0183239 -41.52662516,-18.01862998 -41.52637839,-18.01881362 -41.52600288,-18.01893605 -41.52570248,-18.01940537 -41.52561665,-18.02013996 -41.52526259,-18.02133366 -41.52491927,-18.02225188 -41.52465105,-18.02210904 -41.52421117,-18.021905 -41.52369618,-18.02170095 -41.52332067,-18.02153771 -41.52274132,-18.02120102 -41.52204394,-18.02088475 -41.52119637,-18.02033381 -41.5204668,-18.01994611 -41.51999474,-18.01973186 -41.51982307,-18.01960943 -41.51946902,-18.01941558 -41.51931882,-18.01959922 -41.51883602,-18.0199155 -41.51827812,-18.02009915 -41.51796552,-18.02031837 -41.51728101,-18.02065956 -41.5162166,-18.02112847 -41.51605195,-18.02120441 -41.51587029,-18.02125666 -41.51546766,-18.02138208 -41.5152307,-18.02162758 -41.51506495,-18.02180763 -41.51488588,-18.02204245 -41.51468396,-18.02219066 -41.51446939,-18.02179277 -41.51360035,-18.02003794 -41.5144372,-18.01977267 -41.51469469,-18.01938497 -41.51497364,-18.01891565 -41.51476473,-18.01782099 -41.51461576,-18.01766703 -41.5150247,-18.01772488 -41.51526314,-18.01678128 -41.51667644,-18.01727023 -41.51714537,-18.01607939 -41.51684526,-18.01581126 -41.51643021,-18.01557707 -41.51622796,-18.01549178 -41.5160714,-18.01530928 -41.51594501,-18.01516261 -41.51512224,-18.01557823 -41.51489762,-18.01594504 -41.51392986,-18.01571654 -41.51392561,-18.01562761 -41.51328981,-18.01546784 -41.51284062,-18.01533922 -41.51238099,-18.01519803 -41.51210904,-18.01505901 -41.51229143,-18.01428359 -41.51388758,-18.01477424 -41.51392336,-18.0151381 -41.51463879,-18.01509992 -41.51459343,-18.01481219 -41.51458773,-18.01460906 -41.51463494,-18.01444371 -41.5146756,-18.0142379 -41.51470158,-18.01401446 -41.51477473,-18.01383804 -41.51488844,-18.01367508 -41.51487355,-18.01352722 -41.51484741,-18.0134518 -41.51410068,-18.01332951 -41.51408558,-18.01318016 -41.51386112,-18.01320186 -41.51287079,-18.0132837 -41.51304245,-18.01273274</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.12">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-326B9A9E24644480AED3DA3865F8A199</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2016/05/21 19:38:51.337+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/11 16:44:23.113+00</SimpleData>
+		<SimpleData name="area">88.2612</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">2.2065</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51413679,-17.99593782 -41.5145874,-17.9956317 -41.51502886,-17.99543884 -41.51559591,-17.99597863 -41.51654005,-17.99657046 -41.51698974,-17.99746045 -41.51762976,-17.99774544 -41.51825546,-17.99835205 -41.51909351,-17.99908061 -41.51938787,-17.99940421 -41.51954412,-17.99981528 -41.51946636,-18.00023238 -41.51967287,-18.00083565 -41.52005911,-18.00122339 -41.51973724,-18.00161113 -41.51909351,-18.00191724 -41.51853561,-18.00273353 -41.51784897,-18.0035294 -41.51766673,-18.00395377 -41.51726808,-18.00448185 -41.51687082,-18.00438221 -41.51482555,-18.0040908 -41.51323723,-18.00373278 -41.51166752,-18.00365243 -41.51175499,-18.00387632 -41.51171207,-18.00405999 -41.51181936,-18.00459057 -41.51173353,-18.00501911 -41.51171207,-18.00530481 -41.51188374,-18.00538644 -41.51190519,-18.00561091 -41.51192665,-18.00603945 -41.5120554,-18.00667206 -41.51136875,-18.00712101 -41.50982019,-18.00610699 -41.50939166,-18.00570889 -41.50844738,-18.00468629 -41.50841518,-18.00366598 -41.50836498,-18.00240157 -41.50836468,-18.00167235 -41.50787115,-18.0009785 -41.50793552,-18.00054995 -41.50787115,-17.99979487 -41.50872946,-17.99918265 -41.50934865,-17.99961474 -41.5103927,-17.99974641 -41.51117848,-18.0000311 -41.51162624,-17.99997854 -41.51145458,-17.99963161 -41.51141167,-17.99934591 -41.51117563,-17.99901939 -41.51070356,-17.99869287 -41.51089668,-17.99857042 -41.51141167,-17.9982439 -41.51226997,-17.99752963 -41.51289225,-17.99714188 -41.51340723,-17.99652965 -41.51413679,-17.99593782</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.13">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-D2624C72012B4FE493D926E29DC89B37</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2016/05/26 05:34:02.671+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/12 13:08:27.609+00</SimpleData>
+		<SimpleData name="area">17.2606</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.4315</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.5085742,-17.99401418 -41.50611162,-17.99577711 -41.50372977,-17.9958083 -41.50378779,-17.9957042 -41.50414638,-17.99511536 -41.50444619,-17.99471106 -41.50485536,-17.99376632 -41.50508706,-17.99377281 -41.50502476,-17.99435838 -41.50525152,-17.99433833 -41.50537986,-17.99433735 -41.50621182,-17.99423994 -41.50662709,-17.99401966 -41.50804319,-17.99353782 -41.51004318,-17.99184391 -41.5113178,-17.99133775 -41.51201727,-17.99114076 -41.51211684,-17.99163788 -41.51239564,-17.99213525 -41.51268484,-17.99246247 -41.51258695,-17.9928046 -41.51325671,-17.99399947 -41.5085742,-17.99401418</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.14">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-3061A362C3B6415085353B35F83B9FBE</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2016/05/31 16:45:56.910+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">25.9656</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.6491</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.49808004,-17.99088385 -41.49810356,-17.99080844 -41.49818163,-17.99076696 -41.49824749,-17.99076519 -41.49831336,-17.99076341 -41.49841221,-17.99076075 -41.49847813,-17.99075897 -41.49859353,-17.99075587 -41.49870899,-17.99075276 -41.49877517,-17.99075305 -41.49884266,-17.9907691 -41.49894421,-17.99080112 -41.49904537,-17.99083454 -41.49914603,-17.99086779 -41.49921425,-17.99092315 -41.49929854,-17.99098357 -41.49941605,-17.99108693 -41.49949849,-17.9911408 -41.49959523,-17.99114316 -41.49967582,-17.99114512 -41.49974067,-17.99117871 -41.49988542,-17.99118922 -41.49996571,-17.99121735 -41.5000297,-17.99123977 -41.50010923,-17.99128874 -41.50020429,-17.99133086 -41.50029937,-17.99135338 -41.50039425,-17.99137585 -41.50050423,-17.99141938 -41.50056696,-17.9914412 -41.50067694,-17.99146373 -41.50073935,-17.99148546 -41.50081686,-17.99151515 -41.50084834,-17.99151583 -41.50090764,-17.99158243 -41.50098178,-17.99165261 -41.50104161,-17.99169203 -41.50108587,-17.99172824 -41.50117711,-17.99175819 -41.50123701,-17.99178801 -41.50132475,-17.99185231 -41.50138047,-17.99192104 -41.5014551,-17.99194784 -41.50152162,-17.99205194 -41.50161525,-17.99229607 -41.50164663,-17.99240685 -41.50168598,-17.9925659 -41.50172962,-17.99267995 -41.50178967,-17.99287995 -41.50184978,-17.99296464 -41.50191871,-17.99308203 -41.50195087,-17.99315412 -41.50199577,-17.99323048 -41.50206218,-17.99334344 -41.5021105,-17.99347791 -41.50213817,-17.993566 -41.50218246,-17.99363709 -41.50222376,-17.99372663 -41.50227734,-17.99381826 -41.50229753,-17.99386212 -41.50232496,-17.99394605 -41.50237987,-17.99401668 -41.50243426,-17.99408663 -41.50248812,-17.99415591 -41.50253481,-17.99418568 -41.5025936,-17.99421822 -41.50262206,-17.99427216 -41.50268197,-17.99429101 -41.50272516,-17.99432922 -41.50276808,-17.99436719 -41.50281072,-17.99440493 -41.50286484,-17.99444608 -41.5029069,-17.99448331 -41.50298678,-17.99452087 -41.50301804,-17.99454961 -41.50309749,-17.99458566 -41.50312834,-17.99461411 -41.50318847,-17.99462333 -41.50324849,-17.99463254 -41.50332036,-17.99464356 -41.50336819,-17.99465089 -41.50342786,-17.99466005 -41.50349935,-17.99471788 -41.50353489,-17.99472331 -41.50357618,-17.99475289 -41.50366082,-17.99476678 -41.50370834,-17.99477954 -41.50378318,-17.99478631 -41.50385803,-17.99479308 -41.5038916,-17.99480894 -41.50395102,-17.99482243 -41.50398377,-17.9948398 -41.504043,-17.99485324 -41.50409482,-17.99488974 -41.50415379,-17.9949031 -41.50419192,-17.99494127 -41.50422984,-17.99497923 -41.50419999,-17.99506953 -41.50414453,-17.99516224 -41.50408151,-17.99527804 -41.50402758,-17.9954003 -41.50395355,-17.99554031 -41.50390437,-17.99564606 -41.5038132,-17.99580508 -41.50374056,-17.99591275 -41.5036747,-17.99603724 -41.50359146,-17.99618187 -41.50355649,-17.99622191 -41.50347259,-17.99630353 -41.5033847,-17.99637131 -41.50331505,-17.99641791 -41.50325228,-17.99648048 -41.50319546,-17.99652426 -41.50311759,-17.99659926 -41.5030262,-17.99668316 -41.50291867,-17.99678927 -41.50287778,-17.99682446 -41.50281279,-17.99687419 -41.50272521,-17.99695684 -41.50269694,-17.99698257 -41.50264606,-17.99701989 -41.50259164,-17.99707288 -41.50252345,-17.99714228 -41.5024703,-17.99719402 -41.50242895,-17.99723628 -41.50236161,-17.99734062 -41.50231541,-17.9974039 -41.50227628,-17.99748103 -41.50221598,-17.99752579 -41.50218591,-17.99748976 -41.5021556,-17.99745345 -41.5021097,-17.99739846 -41.5020788,-17.99736143 -41.50204765,-17.99732411 -41.50199367,-17.99730109 -41.50195569,-17.99724535 -41.50193336,-17.9972082 -41.5018849,-17.99715027 -41.50184247,-17.99711014 -41.50182603,-17.99709052 -41.50177632,-17.99703115 -41.50175278,-17.99699232 -41.50169259,-17.99693416 -41.50162805,-17.99683987 -41.50157223,-17.99674533 -41.50154115,-17.9966824 -41.50151983,-17.99655763 -41.50150345,-17.9964618 -41.50150619,-17.99630921 -41.50148374,-17.99624255 -41.50143976,-17.99609623 -41.50139463,-17.99594395 -41.50133829,-17.99585777 -41.50128563,-17.995734 -41.50125647,-17.9956892 -41.50122015,-17.99560452 -41.50118846,-17.99557139 -41.50112447,-17.9955045 -41.50108317,-17.99544109 -41.50102032,-17.99534456 -41.50098974,-17.99528149 -41.50096629,-17.99513099 -41.50096439,-17.99500942 -41.50093857,-17.99486539 -41.50088211,-17.99476937 -41.50081841,-17.99476938 -41.50075713,-17.99472709 -41.50070706,-17.99470707 -41.50064517,-17.9946644 -41.50054413,-17.99462364 -41.5005322,-17.99460106 -41.50046932,-17.99455733 -41.50041983,-17.99448926 -41.50034368,-17.99442165 -41.50030563,-17.99437564 -41.50025314,-17.99437792 -41.50016167,-17.9943594 -41.50008291,-17.99435735 -41.50005662,-17.99436468 -41.50001716,-17.9943996 -41.49997786,-17.99448169 -41.49991337,-17.99459308 -41.49987511,-17.99464414 -41.4998115,-17.99469468 -41.49976059,-17.99471054 -41.49971006,-17.99474372 -41.49963465,-17.99479325 -41.49959651,-17.99479208 -41.49953388,-17.99482454 -41.49948417,-17.99485726 -41.49938404,-17.99488113 -41.49933403,-17.99489499 -41.49925886,-17.99490869 -41.49918392,-17.99492363 -41.4991472,-17.99494245 -41.49909801,-17.99496112 -41.49903515,-17.99496062 -41.4989597,-17.99496001 -41.4988857,-17.99497843 -41.49878836,-17.99501555 -41.49875239,-17.99503413 -41.49870402,-17.99505257 -41.49864329,-17.99507086 -41.49859518,-17.99508921 -41.49848494,-17.99510701 -41.49844758,-17.99510671 -41.49837286,-17.99510612 -41.49829813,-17.99510552 -41.49822374,-17.99510678 -41.49817417,-17.99510767 -41.49810712,-17.99507049 -41.49805461,-17.99505124 -41.49799219,-17.99505128 -41.49794226,-17.99505131 -41.49786736,-17.99505135 -41.49779245,-17.99505139 -41.49773004,-17.99505143 -41.49766443,-17.99503214 -41.49757361,-17.99501281 -41.4975611,-17.99501282 -41.49746727,-17.99497669 -41.49739196,-17.99496994 -41.49732687,-17.9949551 -41.49729769,-17.99493433 -41.49720836,-17.99492337 -41.49719636,-17.99492534 -41.49713114,-17.99491111 -41.49704889,-17.99487635 -41.49701276,-17.99488183 -41.49694215,-17.99484511 -41.49688195,-17.99485428 -41.49682294,-17.9948156 -41.49675886,-17.99470482 -41.49670346,-17.99458304 -41.49667172,-17.99445505 -41.49663936,-17.99432454 -41.49662514,-17.99420785 -41.4966532,-17.99414411 -41.4966689,-17.9940823 -41.49669853,-17.99402144 -41.49673644,-17.99392889 -41.49676738,-17.99386979 -41.49681581,-17.99382994 -41.49686441,-17.99378995 -41.49694188,-17.99375525 -41.49699159,-17.99371763 -41.49707964,-17.99365584 -41.49710341,-17.99362855 -41.49719205,-17.99356632 -41.49723032,-17.99354117 -41.49729002,-17.9934773 -41.49736586,-17.99342856 -41.49739662,-17.99336233 -41.49746699,-17.9932784 -41.49751308,-17.99321409 -41.497581,-17.99310412 -41.49761302,-17.99303406 -41.49768622,-17.99295581 -41.49774571,-17.99287572 -41.49780877,-17.99272693 -41.49783372,-17.99260526 -41.49786712,-17.99244451 -41.4978731,-17.99209309 -41.49788176,-17.99185305 -41.49786827,-17.9916648 -41.49802712,-17.99135458 -41.49820874,-17.99100574 -41.49831645,-17.99079734 -41.49808004,-17.99088385</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.15">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-850587A8EF1042D9BB9C142C6BA9F7DB</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2016/11/02 01:10:43.893+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">0.2895</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.0072</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.5123947,-18.00875317 -41.51212769,-18.00872765 -41.51207712,-18.00882743 -41.5119572,-18.00909757 -41.51193109,-18.00928582 -41.51199215,-18.00957229 -41.51211875,-18.0094663 -41.51225742,-18.00931418 -41.51238309,-18.00903418 -41.5123947,-18.00875317</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.16">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-6AD5FAD8EFA54573919019CAFEB3B3F0</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2017/06/20 03:17:45.157+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/13 14:42:47.355+00</SimpleData>
+		<SimpleData name="area">10.1469</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.2537</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51472486,-18.00661281 -41.51460803,-18.00701821 -41.51456358,-18.00725565 -41.51445547,-18.00755272 -41.51440189,-18.00781242 -41.51429941,-18.0082026 -41.51423567,-18.00844805 -41.51415513,-18.00873749 -41.5141407,-18.00878387 -41.51408923,-18.00878544 -41.51388039,-18.00882895 -41.51374667,-18.00884385 -41.51365207,-18.00884225 -41.51348491,-18.00884123 -41.51342808,-18.00884224 -41.51328763,-18.00882082 -41.51298012,-18.00875782 -41.51275247,-18.00870744 -41.5126156,-18.0086813 -41.51258277,-18.0086757 -41.51250937,-18.00866056 -41.51249021,-18.00868138 -41.5124665,-18.0086747 -41.51234809,-18.00855777 -41.51221327,-18.00840156 -41.51221367,-18.00840127 -41.51217284,-18.00830416 -41.51212293,-18.00811522 -41.51203706,-18.00773374 -41.5119677,-18.00772099 -41.5116185,-18.00773094 -41.51133261,-18.00772833 -41.51069652,-18.00771217 -41.51084256,-18.00723828 -41.5108366,-18.00708791 -41.51099224,-18.00673613 -41.51098696,-18.00665728 -41.51121269,-18.00604889 -41.51125812,-18.00598685 -41.51133374,-18.00574093 -41.51137507,-18.00565701 -41.51153508,-18.00572051 -41.51158932,-18.00575222 -41.51161555,-18.00569933 -41.51162087,-18.00571585 -41.51167259,-18.00574225 -41.51207433,-18.00582211 -41.5123898,-18.00585306 -41.51259722,-18.00587853 -41.51267952,-18.00589938 -41.51298059,-18.00597107 -41.51313234,-18.00598768 -41.51342344,-18.00603537 -41.51385476,-18.00611238 -41.51399721,-18.00615675 -41.51426863,-18.00620594 -41.5148001,-18.00631598 -41.51472486,-18.00661281</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.17">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-7E123B6341DB4CBFB558D9ABCBE9E94E</SimpleData>
+		<SimpleData name="status_imovel">PE</SimpleData>
+		<SimpleData name="dat_criacao">2017/12/14 02:11:43.502+00</SimpleData>
+		<SimpleData name="data_atualizacao">2024/06/18 22:19:39.613+00</SimpleData>
+		<SimpleData name="area">35</SimpleData>
+		<SimpleData name="condicao">Analisado, aguardando atendimento a notificação</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.875</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50177717,-17.98399878 -41.5001893,-17.98608051 -41.50058627,-17.98646829 -41.50102615,-17.98614174 -41.50143385,-17.98591724 -41.50183082,-17.98595806 -41.5028286,-17.98632542 -41.50427699,-17.98708055 -41.50504947,-17.9871826 -41.50518894,-17.98728464 -41.50487781,-17.98771323 -41.50503874,-17.98861122 -41.50516748,-17.9895092 -41.50441647,-17.98957043 -41.50467396,-17.99063168 -41.50501728,-17.9916521 -41.50578976,-17.99134597 -41.50651932,-17.99085617 -41.50735617,-17.990448 -41.5081501,-17.98995819 -41.50900841,-17.9895092 -41.50984526,-17.98893776 -41.50808573,-17.9876316 -41.50621891,-17.98634583 -41.50600433,-17.9860601 -41.50581121,-17.9858356 -41.50559664,-17.98544783 -41.50537133,-17.98499883 -41.50360107,-17.98195783 -41.50177717,-17.98399878</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.18">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-4418266EA74C47F59DC17774627FF354</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2020/09/02 13:32:04.354+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">9.7997</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.245</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50125875,-17.98905567 -41.50087918,-17.98675993 -41.4999231,-17.98568011 -41.50041598,-17.98511802 -41.50062644,-17.98472475 -41.50092491,-17.984404 -41.50120479,-17.98421948 -41.50219999,-17.98515169 -41.50293415,-17.98608297 -41.50289133,-17.98827782 -41.50125875,-17.98905567</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.19">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-8EA7F2EDC09B47CD8E56A06CDE724110</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2021/11/16 14:04:22.758+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">16.9403</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.4235</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51063919,-17.99420314 -41.50896549,-17.99281538 -41.50789261,-17.99357048 -41.50370836,-17.99565211 -41.50340796,-17.99624394 -41.50259256,-17.99675413 -41.50345087,-17.99789697 -41.50428772,-17.99703984 -41.50516748,-17.9964072 -41.50709867,-17.99671332 -41.50797844,-17.99565211 -41.50892258,-17.99463171 -41.50958776,-17.99561129 -41.51036024,-17.99483579 -41.51063919,-17.99420314</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.20">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-2A968C5814474D899EBB89FC49517A2E</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2022/03/13 16:13:32.667+00</SimpleData>
+		<SimpleData name="data_atualizacao">2022/03/13 16:15:02.704+00</SimpleData>
+		<SimpleData name="area">681.6035</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">17.0401</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.52372743,-17.97485636 -41.52269858,-17.97438794 -41.52257543,-17.97430735 -41.52134649,-17.97344472 -41.52127652,-17.97341695 -41.52015222,-17.97316724 -41.5190251,-17.97277357 -41.51826438,-17.97390788 -41.51750574,-17.97492105 -41.51674198,-17.97606264 -41.51650947,-17.97642794 -41.5163052,-17.97682316 -41.51611594,-17.97715936 -41.5159681,-17.97737725 -41.51516024,-17.97824412 -41.51470243,-17.97861289 -41.51461488,-17.97869621 -41.5143028,-17.97907496 -41.51471905,-17.97931194 -41.51487415,-17.97944009 -41.5149234,-17.97950686 -41.51512785,-17.97988978 -41.51519834,-17.98005678 -41.51552667,-17.98085107 -41.51572577,-17.98121527 -41.51652099,-17.98252752 -41.5164294,-17.98275095 -41.51633903,-17.98279947 -41.51601501,-17.98287156 -41.51565207,-17.9827695 -41.5156791,-17.98264154 -41.51553983,-17.98244074 -41.51545831,-17.98235113 -41.51515639,-17.98250748 -41.51416946,-17.98238341 -41.51412594,-17.98233389 -41.51401135,-17.9821969 -41.51381567,-17.981708 -41.51369535,-17.98159159 -41.51382892,-17.9815264 -41.51392396,-17.98139226 -41.51362122,-17.98106941 -41.51294512,-17.98096466 -41.51294043,-17.98104927 -41.51285519,-17.98109458 -41.51275282,-17.98104599 -41.51230195,-17.98045968 -41.51222893,-17.98022715 -41.51216176,-17.98017954 -41.51190674,-17.97970119 -41.51170173,-17.97952503 -41.51160901,-17.97960701 -41.51076606,-17.97890101 -41.51046014,-17.97812463 -41.51004919,-17.97858014 -41.50902578,-17.97982895 -41.50653298,-17.98266776 -41.5063569,-17.98287878 -41.50584636,-17.98347739 -41.50497652,-17.98455738 -41.50539607,-17.98498085 -41.50545612,-17.98507756 -41.5055702,-17.98544389 -41.50557562,-17.98597347 -41.50591101,-17.98647472 -41.50698706,-17.9874877 -41.50756245,-17.98799345 -41.50809135,-17.98831674 -41.50898445,-17.98868637 -41.50944471,-17.98883553 -41.50976865,-17.98902434 -41.5103181,-17.98966867 -41.51043722,-17.98987867 -41.51090833,-17.98995715 -41.51132013,-17.98999898 -41.51139454,-17.99004745 -41.5119565,-17.99113507 -41.51192418,-17.99118519 -41.51197456,-17.9913579 -41.5125572,-17.99248222 -41.51271355,-17.99312062 -41.5127907,-17.99325677 -41.51308297,-17.99361808 -41.51325131,-17.99393641 -41.51339402,-17.99420798 -41.51347901,-17.99433052 -41.51355322,-17.99449395 -41.51381992,-17.99454245 -41.514372,-17.99466442 -41.51464686,-17.99478704 -41.51481401,-17.99494122 -41.51490873,-17.99510498 -41.51519796,-17.99576885 -41.51552566,-17.99626995 -41.51602896,-17.99691123 -41.51629413,-17.99703781 -41.51650479,-17.99713976 -41.51688745,-17.99731317 -41.51704708,-17.99741227 -41.5172424,-17.99757942 -41.51766078,-17.99808257 -41.51807614,-17.99843524 -41.51851845,-17.99875411 -41.51923415,-17.99918021 -41.51925695,-17.99922033 -41.51957648,-18.00006718 -41.5203797,-17.99965368 -41.52072632,-17.99946646 -41.52170723,-17.99835253 -41.52238557,-17.99763046 -41.52299369,-17.99692185 -41.52395305,-17.99583644 -41.52445543,-17.99529013 -41.5248731,-17.99484378 -41.52539494,-17.99438422 -41.52563897,-17.99415281 -41.52589711,-17.99387708 -41.52609998,-17.99366078 -41.52623483,-17.99345421 -41.52672676,-17.99265083 -41.52706541,-17.99215119 -41.52707236,-17.99216815 -41.52751342,-17.99293771 -41.52771646,-17.99296688 -41.52830649,-17.99259751 -41.52863493,-17.99257631 -41.52883243,-17.9923027 -41.52920573,-17.99284284 -41.52968689,-17.99358292 -41.52953657,-17.99401384 -41.52976167,-17.99427831 -41.53023401,-17.99458165 -41.53109477,-17.99493683 -41.53114686,-17.99527333 -41.5312631,-17.9954242 -41.53172153,-17.99570437 -41.53177801,-17.99537768 -41.53191538,-17.99527337 -41.53232235,-17.99524543 -41.53265781,-17.99536418 -41.53260756,-17.99565126 -41.53272268,-17.99574531 -41.5328995,-17.99581792 -41.53310719,-17.99580396 -41.53328453,-17.99590353 -41.53341653,-17.99609392 -41.5335408,-17.99630565 -41.53394552,-17.99666907 -41.53426137,-17.99673434 -41.5345743,-17.99673918 -41.53476494,-17.99675852 -41.53500401,-17.99690184 -41.53511711,-17.99699518 -41.53539561,-17.99708407 -41.53544126,-17.9971547 -41.53538625,-17.99741175 -41.53545122,-17.9976186 -41.53558061,-17.99770072 -41.53569437,-17.9976852 -41.53584017,-17.99754627 -41.53607143,-17.99753559 -41.53643062,-17.99778094 -41.53671079,-17.99812274 -41.537077,-17.99832787 -41.53783847,-17.99839822 -41.53853885,-17.99847301 -41.53884735,-17.99829307 -41.53896595,-17.99835131 -41.53905397,-17.99841112 -41.53942499,-17.99866377 -41.53979796,-17.99891206 -41.53976041,-17.99908938 -41.53979054,-17.9992492 -41.5399046,-17.99943935 -41.54001669,-17.99960449 -41.54011541,-17.99985819 -41.54032625,-18.00008492 -41.54051392,-18.00065929 -41.54067639,-18.00079256 -41.54080335,-18.0008469 -41.54095884,-18.00092502 -41.54113942,-18.00095196 -41.54124696,-18.0010777 -41.54144301,-18.00142431 -41.54160156,-18.00126086 -41.54190299,-18.00090572 -41.54253768,-18.00015284 -41.54299486,-17.99898752 -41.54343082,-17.997761 -41.54369638,-17.99697094 -41.54423902,-17.99543767 -41.54444071,-17.99496369 -41.54453939,-17.99487786 -41.54608238,-17.99626446 -41.5470552,-17.99516892 -41.54724605,-17.99497216 -41.54689862,-17.99465647 -41.54682905,-17.99459561 -41.54619535,-17.9938513 -41.54571795,-17.99274884 -41.54563826,-17.99261976 -41.54540294,-17.99228796 -41.54511805,-17.99202485 -41.54433163,-17.99153814 -41.54370514,-17.99138922 -41.54350246,-17.99130512 -41.54327061,-17.99116413 -41.54263707,-17.99072835 -41.5423427,-17.99058143 -41.54139301,-17.99045038 -41.54127875,-17.99048797 -41.54097271,-17.99049891 -41.5406565,-17.990534 -41.54046824,-17.99035 -41.54023124,-17.99007388 -41.53994921,-17.98972561 -41.53934226,-17.98879344 -41.53885728,-17.98847765 -41.53874054,-17.98840115 -41.53771095,-17.98723662 -41.5371105,-17.98664326 -41.53662286,-17.98626911 -41.53632532,-17.98601673 -41.53633715,-17.98600086 -41.53578726,-17.98527926 -41.53541014,-17.98462033 -41.53529018,-17.98423274 -41.53520374,-17.98395973 -41.53494618,-17.9832242 -41.53326896,-17.98229011 -41.53282818,-17.98194396 -41.53260122,-17.98161591 -41.5323357,-17.98110953 -41.53187386,-17.97982044 -41.53182096,-17.97971121 -41.53147715,-17.97927412 -41.53129085,-17.9789947 -41.53074352,-17.97879043 -41.53009928,-17.97861447 -41.52972635,-17.97856546 -41.52959255,-17.97839369 -41.52909686,-17.97773835 -41.52900522,-17.97759455 -41.52874523,-17.97673924 -41.52867591,-17.97652937 -41.52863304,-17.97614349 -41.52854893,-17.97601087 -41.52835334,-17.97562504 -41.52807001,-17.97508078 -41.52775716,-17.97460092 -41.52754806,-17.97427989 -41.52751623,-17.97418832 -41.52751613,-17.97415514 -41.52759978,-17.97388502 -41.52733825,-17.97373507 -41.52700252,-17.97408943 -41.52669801,-17.97434035 -41.52636572,-17.97451876 -41.52552265,-17.97463112 -41.52491123,-17.97468529 -41.52394596,-17.97488636 -41.52372743,-17.97485636</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.21">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-06C3EBB44E004A74B766CC441D415CBC</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2022/05/11 23:56:54.769+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">387.199</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">9.68</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.53475761,-18.01018198 -41.53387785,-18.00987588 -41.53364182,-18.01032482 -41.53355598,-18.01048807 -41.53323412,-18.01093701 -41.53274059,-18.01154919 -41.5323329,-18.01216138 -41.53196812,-18.01330411 -41.53151751,-18.01383466 -41.53106689,-18.01440603 -41.53053045,-18.01448765 -41.52926445,-18.0146509 -41.52874947,-18.0146509 -41.52821302,-18.01461008 -41.52737617,-18.0146509 -41.52664661,-18.01424278 -41.52572393,-18.01363061 -41.52531624,-18.01301843 -41.52480125,-18.01248787 -41.52428627,-18.01171244 -41.52372837,-18.01093701 -41.52338505,-18.0102432 -41.52299881,-18.00963101 -41.52188301,-18.00840662 -41.52123928,-18.00795768 -41.52063847,-18.00750873 -41.51990891,-18.00750873 -41.51924372,-18.00730467 -41.51857853,-18.00681491 -41.51804209,-18.00612108 -41.51767731,-18.00530481 -41.51759148,-18.00440691 -41.51802063,-18.00314167 -41.51890039,-18.00183561 -41.51939392,-18.00057036 -41.51924372,-17.99897857 -41.51855707,-17.99865205 -41.51898623,-17.99832553 -41.51995182,-17.99808064 -41.52108908,-17.99750922 -41.52271986,-17.99652965 -41.5242219,-17.99542762 -41.52546644,-17.99473375 -41.52623892,-17.99420314 -41.52621746,-17.99375416 -41.5267539,-17.99355007 -41.5273118,-17.99285619 -41.52761221,-17.99240721 -41.52808428,-17.99208068 -41.52872801,-17.99240721 -41.52941465,-17.99252966 -41.52992964,-17.99301946 -41.53040171,-17.99379497 -41.53104544,-17.9946113 -41.53168917,-17.99489701 -41.53194666,-17.9953868 -41.53254747,-17.99530517 -41.53301954,-17.99530517 -41.5337491,-17.99599904 -41.53482199,-17.99652965 -41.53559446,-17.9971827 -41.5370965,-17.99816227 -41.53808355,-17.99844798 -41.53881311,-17.99861124 -41.53913498,-17.99844798 -41.53919935,-17.99861124 -41.53962851,-17.99861124 -41.54027224,-17.99930509 -41.54061556,-18.00028465 -41.54108763,-18.00077443 -41.54085159,-18.00175398 -41.54102325,-18.00277434 -41.54080868,-18.00359063 -41.54063702,-18.00403958 -41.54067993,-18.00432528 -41.54072285,-18.00461097 -41.54072285,-18.00485586 -41.54055119,-18.00542725 -41.54042244,-18.00632515 -41.54050827,-18.00750873 -41.54035807,-18.0080189 -41.54042244,-18.0083454 -41.53975725,-18.00844744 -41.53870583,-18.00848825 -41.53799772,-18.00889638 -41.53673172,-18.00975345 -41.53568029,-18.01020238 -41.53475761,-18.01018198</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.22">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-21EB9AD71FEA4794BEACD319E88ABD89</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2022/08/23 13:25:37.314+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">16.7022</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.4176</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.502603,-17.98848781 -41.50147199,-17.98895949 -41.50123955,-17.98907646 -41.50047378,-17.98938088 -41.49994105,-17.98940651 -41.49922371,-17.98928471 -41.49894476,-17.9892643 -41.49857189,-17.98915914 -41.4984456,-17.98890816 -41.49855012,-17.98883775 -41.49857631,-17.98877914 -41.49864965,-17.98874061 -41.49874262,-17.988669 -41.49886388,-17.98854955 -41.4992284,-17.98827586 -41.49926951,-17.9882353 -41.49939537,-17.98806018 -41.49941092,-17.98766917 -41.49920643,-17.98740826 -41.49912237,-17.98728682 -41.49932279,-17.98715504 -41.49949448,-17.9870636 -41.49967103,-17.98697099 -41.49984342,-17.98684271 -41.50007786,-17.98662008 -41.50023665,-17.98654082 -41.50045617,-17.98644838 -41.50069444,-17.98616857 -41.50085425,-17.98632342 -41.50108325,-17.98622906 -41.50158108,-17.9859237 -41.50188901,-17.98622344 -41.50234114,-17.98607189 -41.5029634,-17.98614392 -41.50405169,-17.98697851 -41.50555372,-17.98724383 -41.50490999,-17.98791732 -41.5048027,-17.98957043 -41.5044021,-17.98960724 -41.50428469,-17.98891794 -41.50402071,-17.9884608 -41.5035367,-17.98806018 -41.502603,-17.98848781</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.23">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-E55F513A00E3498D9BB3DA75E72F412E</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2024/07/04 19:43:22.965+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/03/07 16:10:06.509+00</SimpleData>
+		<SimpleData name="area">54.274</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">1.3569</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.50617679,-18.00869575 -41.50650504,-18.00899126 -41.5069895,-18.00930147 -41.5075059,-18.00833052 -41.50703999,-18.0074054 -41.50651451,-18.00708005 -41.50636019,-18.00670859 -41.50636751,-18.00647711 -41.50633667,-18.006397 -41.50628681,-18.00627593 -41.50624363,-18.00616323 -41.50618858,-18.00602272 -41.5062666,-18.00541258 -41.5060486,-18.00518575 -41.50567856,-18.00541046 -41.50520592,-18.00552799 -41.50518183,-18.00548821 -41.50518933,-18.00345969 -41.50548445,-18.00233549 -41.50529104,-18.00203955 -41.50468423,-18.00222167 -41.50412484,-18.00196137 -41.50396294,-18.00207182 -41.5038988,-18.00209395 -41.50344259,-18.002013 -41.50297319,-18.00193162 -41.50249737,-18.0013519 -41.50207917,-18.00088041 -41.5018699,-18.00079396 -41.50169584,-18.00074656 -41.50152063,-18.00072098 -41.50140314,-18.00067809 -41.50073239,-17.99959623 -41.49961629,-17.99804191 -41.49815003,-17.99643612 -41.4975899,-17.99711765 -41.49684662,-17.99840365 -41.49647886,-17.99910165 -41.49606521,-17.99931243 -41.49610924,-18.0005786 -41.49659431,-18.00110925 -41.49742914,-18.00131573 -41.4984062,-18.00140287 -41.49853159,-18.00173518 -41.49854241,-18.00237793 -41.49869194,-18.0026816 -41.49946172,-18.00340866 -41.49913705,-18.00402328 -41.49975288,-18.00433386 -41.50015014,-18.00453252 -41.50053901,-18.00469825 -41.50097354,-18.00488762 -41.50122521,-18.00497269 -41.50151793,-18.00512003 -41.50186851,-18.00532853 -41.50214009,-18.00551014 -41.50231141,-18.00571324 -41.50261065,-18.00586381 -41.50290128,-18.00599342 -41.50308491,-18.00610067 -41.50341117,-18.00609106 -41.50365648,-18.0060378 -41.50379706,-18.00611971 -41.5039062,-18.00617755 -41.50404218,-18.00619748 -41.50418396,-18.00629232 -41.50433684,-18.00648943 -41.50448471,-18.00661875 -41.50494949,-18.00724769 -41.50617679,-18.00869575</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.24">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-559F3AB0BF894B83AE994E2D2B803FCB</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2025/09/01 17:06:05.153+00</SimpleData>
+		<SimpleData name="data_atualizacao">2025/09/07 22:12:44.193+00</SimpleData>
+		<SimpleData name="area">34.0858</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.8521</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51549737,-17.99622232 -41.51611794,-17.9968858 -41.51731893,-17.99760957 -41.51743553,-17.99776843 -41.51807915,-17.99844455 -41.51853633,-17.9987675 -41.51923473,-17.99919996 -41.51956931,-18.00003977 -41.51959671,-18.00032805 -41.51954435,-18.00052123 -41.51943308,-18.00125223 -41.51930243,-18.00149165 -41.51885462,-18.00213328 -41.51825645,-18.00269274 -41.51817681,-18.00289899 -41.51711439,-18.00258718 -41.51688243,-18.00221096 -41.51658869,-18.00116726 -41.51627281,-18.00065327 -41.51585871,-18.00019612 -41.51507378,-17.99995294 -41.51288894,-18.00038107 -41.51228745,-18.00014614 -41.51199278,-18.00017136 -41.51140027,-18.00040206 -41.51128938,-18.00023356 -41.51133205,-17.99996823 -41.51110836,-17.99937372 -41.51344123,-17.99684353 -41.5149496,-17.99527408 -41.51549737,-17.99622232</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark id="imveis_do_sicar.25">
+	<Style><LineStyle><color>FF232323</color><width>0.737006</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#imveis_do_sicar">
+		<SimpleData name="cod_imovel">MG-3168606-0891DF3FC5A1443E89046F4F3E647986</SimpleData>
+		<SimpleData name="status_imovel">AT</SimpleData>
+		<SimpleData name="dat_criacao">2026/02/09 20:17:17.772+00</SimpleData>
+		<SimpleData name="data_atualizacao">2026/02/09 22:14:41.369+00</SimpleData>
+		<SimpleData name="area">28.8078</SimpleData>
+		<SimpleData name="condicao">Aguardando análise</SimpleData>
+		<SimpleData name="uf">MG</SimpleData>
+		<SimpleData name="municipio">Teófilo Otoni</SimpleData>
+		<SimpleData name="cod_municipio_ibge">3168606</SimpleData>
+		<SimpleData name="m_fiscal">0.7202</SimpleData>
+		<SimpleData name="tipo_imovel">IRU</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-41.51801834,-18.00321529 -41.51781118,-18.00351455 -41.51747816,-18.00465184 -41.51647768,-18.00437182 -41.51629981,-18.00433062 -41.51449682,-18.00399701 -41.51207328,-18.00349429 -41.51181023,-18.00415135 -41.51170084,-18.00416962 -41.51167848,-18.00387753 -41.51165694,-18.00345533 -41.51163359,-18.00318701 -41.51162686,-18.00278306 -41.5115966,-18.00201363 -41.51157384,-18.00088663 -41.51133572,-18.00041112 -41.51168701,-18.00027415 -41.51205485,-18.00025064 -41.51269505,-18.00010124 -41.51406425,-17.99923805 -41.5149038,-17.99909133 -41.51591375,-17.99955148 -41.51675578,-18.00069202 -41.51697689,-18.00160547 -41.51732595,-18.00246673 -41.51816237,-18.00290547 -41.51801834,-18.00321529</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>
