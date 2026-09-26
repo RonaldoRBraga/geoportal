@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "car contagem",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4674" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -44.052131, -19.856319 ], [ -44.050299, -19.85739 ], [ -44.050707, -19.858001 ], [ -44.051285146392374, -19.857661575417321 ], [ -44.051759, -19.85755 ], [ -44.052547, -19.857251 ], [ -44.052448, -19.857029 ], [ -44.052131, -19.856319 ] ] ] ] } }
+]
+}
